@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tres columnas verticales</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+    }
+    .uno {
+      background: rgb(195, 218, 21);
+      flex: 1;
+    }
+    .dos {
+      background: rgb(24, 74, 226);
+      flex: 1;
+    }
+    .tres {
+      background: blue;
+      flex: 1;
+    }
+    .cuatro {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        background: rgb(0, 255, 195);
+        width: 100px;
+        height: 100PX;
+        position: absolute;
+        top: 00px;
+        left: 370px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="uno"></div>
+    <div class="dos">
+        <div class="cuatro"></div>
+    </div>
+    <div class="tres"></div>
+  </div>
+</body>
+</html>
