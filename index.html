@@ -4,212 +4,981 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Jamiel Mendoza</title>
+    <title>Jamiel Mendoza | Portafolio Interactivo</title>
 
     <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f6f7;
-            color: #2c3e50;
+            box-sizing: border-box;
         }
 
-        header {
-            background-color: #2c3e50;
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Partículas animadas de fondo */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float-particle 15s infinite;
+        }
+
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        /* Hero Section con diseño lateral */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-left {
+            text-align: left;
+        }
+
+        .hero-left h1 {
+            font-size: 4.5em;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-left .subtitle {
+            font-size: 1.5em;
+            color: #c4b5fd;
+            margin-bottom: 30px;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero-left p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #e9d5ff;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .cta-btn {
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
             color: white;
-            text-align: center;
-            padding: 25px 10px;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
         }
 
-        .perfil {
+        .cta-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .hero-right {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            padding: 40px 10%;
+            font-size: 1.5em;
+            transition: all 0.3s;
+            cursor: pointer;
         }
 
-        .foto img {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #5b6e7a;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        .social-link:hover {
+            background: rgba(139, 92, 246, 0.6);
+            transform: scale(1.2);
         }
 
-        .descripcion {
-            max-width: 500px;
+        /* Modal de contacto */
+        .contact-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
         }
 
-        .descripcion h2 {
-            color: #2980b9;
-            margin-bottom: 10px;
-        }
-
-        .trabajos {
-            text-align: center;
-            padding: 40px 10%;
-        }
-
-        .trabajos h2 {
-            color: #090c0a;
-            margin-bottom: 15px;
-        }
-
-        .ejercicios {
-            background-color: #ecf0f1;
-            padding: 40px 10%;
-        }
-
-        .ejercicios h2 {
-            text-align: center;
-            color: #0d0b0e;
-            margin-bottom: 30px;
-        }
-
-        .lista-ejercicios {
+        .contact-modal.active {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
         }
 
-        .categoria {
-            background-color: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-            width: 260px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .categoria h3 {
-            color: #34495e;
-            text-align: center;
-            margin-bottom: 10px;
+        .contact-bubble {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.9) 0%, rgba(236, 72, 153, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: bubbleIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        .categoria ul {
-            list-style-type: disc;
-            margin-left: 25px;
+        @keyframes bubbleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
-        footer {
-            background-color: #2c3e50;
+        .bubble-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
             color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 14px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        
-        /* Estilos adicionales para mejor presentación */
+
+        .bubble-close:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(90deg);
+        }
+
+        .bubble-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .bubble-title {
+            font-size: 2em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .bubble-content {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bubble-content input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.1em;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .bubble-content input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .bubble-content input:focus {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .bubble-display {
+            text-align: center;
+            font-size: 1.2em;
+            color: white;
+            word-break: break-all;
+        }
+
+        .bubble-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .bubble-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .bubble-btn-save {
+            background: white;
+            color: #8b5cf6;
+        }
+
+        .bubble-btn-save:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .bubble-btn-visit {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .bubble-btn-visit:hover {
+            background: white;
+            color: #8b5cf6;
+        }
+
+        /* Navegación flotante circular */
+        .float-nav {
+            position: fixed;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .nav-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-dot:hover, .nav-dot.active {
+            background: #8b5cf6;
+            transform: scale(1.5);
+        }
+
+        .nav-dot::before {
+            content: attr(data-label);
+            position: absolute;
+            right: 30px;
+            white-space: nowrap;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-dot:hover::before {
+            opacity: 1;
+        }
+
+        /* Sección de unidades como tarjetas expansibles */
+        .unidades-section {
+            min-height: 100vh;
+            padding: 100px 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .unidades-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .unidad-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 60px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .unidad-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .unidad-card:hover::before {
+            left: 100%;
+        }
+
+        .unidad-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(139, 92, 246, 0.4);
+            border-color: #8b5cf6;
+        }
+
+        .unidad-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            cursor: pointer;
+        }
+
+        .unidad-title-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .unidad-number {
+            font-size: 4em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .unidad-name {
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        .expand-icon {
+            font-size: 2em;
+            transition: transform 0.3s;
+        }
+
+        .unidad-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .unidad-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .unidad-card.expanded .unidad-content {
+            max-height: 2000px;
+        }
+
+        .content-block {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .content-block h3 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #c4b5fd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-block ul {
+            list-style: none;
+        }
+
+        .content-block li {
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid #8b5cf6;
+            transition: all 0.3s;
+        }
+
+        .content-block li:hover {
+            background: rgba(139, 92, 246, 0.2);
+            transform: translateX(10px);
+            border-left-color: #ec4899;
+        }
+
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .practice-category {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .practice-category:hover {
+            background: rgba(139, 92, 246, 0.2);
+            transform: scale(1.05);
+        }
+
+        .practice-category h4 {
+            color: #a78bfa;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .practice-category ul {
+            list-style: none;
+        }
+
+        .practice-category li {
+            padding: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .practice-category li::before {
+            content: '▹ ';
+            color: #8b5cf6;
+            font-weight: bold;
+        }
+
         a {
-            color: #2980b9;
+            color: #c4b5fd;
             text-decoration: none;
             transition: color 0.3s;
         }
-        
+
         a:hover {
-            color: #1a5276;
-            text-decoration: underline;
+            color: #ec4899;
         }
-        
-        ul {
-            padding-left: 20px;
+
+        /* Footer moderno */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
         }
-        
-        li {
-            margin-bottom: 8px;
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-left {
+                text-align: center;
+            }
+
+            .hero-left h1 {
+                font-size: 3em;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .float-nav {
+                display: none;
+            }
+
+            .unidad-content {
+                grid-template-columns: 1fr;
+            }
+
+            .practices-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-left h1 {
+                font-size: 2.5em;
+            }
+
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .unidad-number {
+                font-size: 3em;
+            }
+
+            .unidad-name {
+                font-size: 1.5em;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Jamiel Romario Mendoza Coila</h1>
-    </header>
+    <!-- Partículas de fondo -->
+    <div class="particles" id="particles"></div>
 
-    <main>
-        <section class="perfil">
-            <div class="foto">
-                <img src="Mi web/imagenes/yo.jpg" alt="Foto de Jamiel Mendoza">
-            </div>
-            <div class="descripcion">
-                <h2>Sobre mí</h2>
-                <p>Soy un estudiante y desarrollador apasionado por la tecnología, enfocado en el Desarrollo Basado
+    <!-- Navegación flotante -->
+    <div class="float-nav">
+        <div class="nav-dot active" data-label="Inicio" onclick="scrollToSection('hero')"></div>
+        <div class="nav-dot" data-label="Unidad 1" onclick="scrollToSection('unidad1')"></div>
+        <div class="nav-dot" data-label="Unidad 2" onclick="scrollToSection('unidad2')"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-left">
+                <h1>Jamiel Romario Mendoza Coila</h1>
+                <div class="subtitle">Desarrollador Full Stack</div>
+                <p>Soy un estudiante de la Universidad Nacional Del Altiplano, desarrollador apasionado por la tecnología, enfocado en el Desarrollo Basado
                     en Plataformas. Me gusta crear soluciones digitales que sean funcionales, eficientes y visualmente
-                    atractivas. Siempre busco aprender nuevas herramientas y mejorar mis habilidades en HTML, CSS y
-                    otras
-                    tecnologías web. Mi objetivo es seguir creciendo en el mundo del desarrollo, aportando ideas
-                    innovadoras
-                    y proyectos que generen un impacto positivo.</p>
-            </div>
-        </section>
-
-        <section class="trabajos">
-            <h2>Trabajos encargados</h2>
-            <p>Proyecto de portafolio, práctica de diseño web</p>
-            <ul>
-                <li><a href="tareas/copiadeldocumento.html" target="_blank">Trabajo 01 - Transformación de PDF a HTML</a></li>
-                <li><a href="tareas/computadora.html" target="_blank">Trabajo 02 - Diseño de computadora con html y css</a></li>
-                <li><a href="tareas/calculadora.html" target="_blank">Trabajo 03 - Calculadora básica con JavaScript</a></li>
-            </ul>
-        </section>
-
-        <section class="ejercicios">
-            <h2>Practicas Realizadas en Clase</h2>
-            <div class="lista-ejercicios">
-                <div class="categoria">
-                    <h3>Ejercicios de HTML</h3>
-                    <ul>
-                        <li><a href="practicas/prac_1.html" target="_blank">Practica 1</a></li>
-                        <li><a href="practicas/prac_2.html" target="_blank">Practica 2</a></li>
-                    </ul>
-                </div>
-
-                <div class="categoria">
-                    <h3>Ejercicios de CSS</h3>
-                    <ul>
-                        <li><a href="practicas/prac_css_1.html" target="_blank">Practica 1</a></li>
-                        <li><a href="practicas/prac_css_2.html" target="_blank">Practica 2</a></li>
-                        <li><a href="practicas/prac_css_3.html" target="_blank">Practica 3</a></li>
-                        <li><a href="practicas/prac_css_4.html" target="_blank">Practica 4</a></li>
-                        <li><a href="practicas/prac_css_5.html" target="_blank">Practica 5</a></li>
-                        <li><a href="practicas/prac_css_6.html" target="_blank">Practica 6</a></li>
-                    </ul>
-                </div>
-
-                <div class="categoria">
-                    <h3>Ejercicios de JavaScript</h3>
-                    <ul>
-                        <li><a href="practicas/prac_java_1.html" target="_blank">Practica 1</a></li>
-                        <li><a href="practicas/prac_java_2.html" target="_blank">Practica 2</a></li>
-                        <li><a href="practicas/prac_java_3.html" target="_blank">Practica 3</a></li>
-                        <li><a href="practicas/prac_java_4.html" target="_blank">Practica 4</a></li>
-                        <li><a href="practicas/prac_java_5.html" target="_blank">Practica 5</a></li>
-                        <li><a href="practicas/prac_java_6.html" target="_blank">Practica 6</a></li>
-                    </ul>
-                </div>
-                
-                <div class="categoria">
-                    <h3>Ejercicios de Bootstrap</h3>
-                    <ul>
-                        <li><a href="practicas/prac_boo_1.html" target="_blank">Practica 1</a></li>
-                        <li><a href="practicas/prac_boo_2.html" target="_blank">Practica 2</a></li>
-                        <li><a href="practicas/prac_boo_3.html" target="_blank">Practica 3</a></li>
-                        <li><a href="practicas/prac_boo_4.html" target="_blank">Practica 4</a></li>
-                    </ul>
+                    atractivas.</p>
+                <div class="cta-buttons">
+                    <a href="#unidad1" class="cta-btn cta-primary"> I Unidad</a>
+                    <a href="#unidad2" class="cta-btn cta-secondary"> II Unidad</a>
                 </div>
             </div>
-        </section>
-    </main>
+            <div class="hero-right">
+                <div class="profile-card">
+                    <img src="practicas/imagenes/yooooo.jpg" alt="Jamiel Mendoza" class="profile-image">
+                    <div class="social-links">
+                        <div class="social-link" onclick="showContact('email')" title="Email">📧</div>
+                        <div class="social-link" onclick="showContact('github')" title="GitHub">🔗</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Unidades -->
+    <section class="unidades-section" id="unidad1">
+        <div class="unidades-container">
+            <h2 class="section-title"> III Semestre Academico</h2>
+
+            <!-- Unidad 1 -->
+            <div class="unidad-card expanded">
+                <div class="unidad-header" onclick="toggleUnidad(this)">
+                    <div class="unidad-title-group">
+                        <div class="unidad-number">01</div>
+                        <div class="unidad-name">Primera Unidad</div>
+                    </div>
+                    <div class="expand-icon">⌄</div>
+                </div>
+                <div class="unidad-content">
+                    <div class="content-block">
+                        <h3>🎯 Trabajos Encargados</h3>
+                        <ul>
+                            <li><a href="tareas/copiadeldocumento.html" target="_blank">Transformación de PDF a HTML</a></li>
+                            <li><a href="tareas/computadora.html" target="_blank">Diseño de computadora con HTML y CSS</a></li>
+                            <li><a href="tareas/calculadora.html" target="_blank">Calculadora básica con JavaScript</a></li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <h3>✨ Prácticas Realizadas</h3>
+                        <div class="practices-grid">
+                            <div class="practice-category">
+                                <h4>HTML</h4>
+                                <ul>
+                                    <li><a href="practicas/DOC_html/prac_1.html" target="_blank">Practica 1</a></li>
+                                    <li><a href="practicas/DOC_html/prac_2.html" target="_blank">Practica 2</a></li>
+                                </ul>
+                            </div>
+                            <div class="practice-category">
+                                <h4>CSS</h4>
+                                <ul>
+                                    <li><a href="practicas/DOC_css/prac_css_1.html" target="_blank">Practica 1</a></li>
+                                    <li><a href="practicas/DOC_css/prac_css_2.html" target="_blank">Practica 2</a></li>
+                                    <li><a href="practicas/DOC_css/prac_css_3.html" target="_blank">Practica 3</a></li>
+                                    <li><a href="practicas/DOC_css/prac_css_4.html" target="_blank">Practica 4</a></li>
+                                    <li><a href="practicas/DOC_css/prac_css_5.html" target="_blank">Practica 5</a></li>
+                                    <li><a href="practicas/DOC_css/prac_css_6.html" target="_blank">Practica 6</a></li>
+                                </ul>
+                            </div>
+                            <div class="practice-category">
+                                <h4>JavaScript</h4>
+                                <ul>
+                                    <li><a href="practicas/DOC_java/prac_java_1.html" target="_blank">Practica 1</a></li>
+                                    <li><a href="practicas/DOC_java/prac_java_2.html" target="_blank">Practica 2</a></li>
+                                    <li><a href="practicas/DOC_java/prac_java_3.html" target="_blank">Practica 3</a></li>
+                                    <li><a href="practicas/DOC_java/prac_java_4.html" target="_blank">Practica 4</a></li>
+                                    <li><a href="practicas/DOC_java/prac_java_5.html" target="_blank">Practica 5</a></li>
+                                    <li><a href="practicas/DOC_java/prac_java_6.html" target="_blank">Practica 6</a></li>
+                                </ul>
+                            </div>
+                            <div class="practice-category">
+                                <h4>Bootstrap</h4>
+                                <ul>
+                                    <li><a href="practicas/DOC_boo/prac_boo_1.html" target="_blank">Practica 1</a></li>
+                                    <li><a href="practicas/DOC_boo/prac_boo_2.html" target="_blank">Practica 2</a></li>
+                                    <li><a href="practicas/DOC_boo/prac_boo_3.html" target="_blank">Practica 3</a></li>
+                                    <li><a href="practicas/DOC_boo/prac_boo_4.html" target="_blank">Practica 4</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unidad 2 -->
+            <div class="unidad-card" id="unidad2">
+                <div class="unidad-header" onclick="toggleUnidad(this)">
+                    <div class="unidad-title-group">
+                        <div class="unidad-number">02</div>
+                        <div class="unidad-name">Segunda Unidad</div>
+                    </div>
+                    <div class="expand-icon">⌄</div>
+                </div>
+                <div class="unidad-content">
+                    <div class="content-block">
+                        <h3>🎯 Trabajos Encargados</h3>
+                        <ul>
+                            <li><a href="#" target="_blank">Trabajo 01 - (Por agregar)</a></li>
+                            <li><a href="#" target="_blank">Trabajo 02 - (Por agregar)</a></li>
+                            <li><a href="#" target="_blank">Trabajo 03 - (Por agregar)</a></li>
+                        </ul>
+                    </div>
+                    <div class="content-block">
+                        <h3>✨ Prácticas Realizadas</h3>
+                        <div class="practices-grid">
+                            <div class="practice-category">
+                                <h4>HTML</h4>
+                                <ul>
+                                    <li><a href="#" target="_blank">Practica 1 - (Por agregar)</a></li>
+                                    <li><a href="#" target="_blank">Practica 2 - (Por agregar)</a></li>
+                                </ul>
+                            </div>
+                            <div class="practice-category">
+                                <h4>CSS</h4>
+                                <ul>
+                                    <li><a href="#" target="_blank">Practica 1 - (Por agregar)</a></li>
+                                    <li><a href="#" target="_blank">Practica 2 - (Por agregar)</a></li>
+                                </ul>
+                            </div>
+                            <div class="practice-category">
+                                <h4>JavaScript</h4>
+                                <ul>
+                                    <li><a href="#" target="_blank">Practica 1 - (Por agregar)</a></li>
+                                    <li><a href="#" target="_blank">Practica 2 - (Por agregar)</a></li>
+                                </ul>
+                            </div>
+                            <div class="practice-category">
+                                <h4>Bootstrap</h4>
+                                <ul>
+                                    <li><a href="#" target="_blank">Practica 1 - (Por agregar)</a></li>
+                                    <li><a href="#" target="_blank">Practica 2 - (Por agregar)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>2025 Jamiel Mendoza | Un chico de Chil</p>
+        <p>© 2025 Jamiel Mendoza | Un chico de Chil 🚀 | Hecho con 💜 y código</p>
     </footer>
+
+    <!-- Modal de Contacto -->
+    <div class="contact-modal" id="contactModal">
+        <div class="contact-bubble">
+            <button class="bubble-close" onclick="closeContact()">×</button>
+            <div class="bubble-icon" id="bubbleIcon"></div>
+            <div class="bubble-title" id="bubbleTitle"></div>
+            <div class="bubble-content" id="bubbleContent"></div>
+            <div class="bubble-actions" id="bubbleActions"></div>
+        </div>
+    </div>
+
+    <script>
+        // ===== AQUÍ INGRESA TUS DATOS =====
+        const contactData = {
+           
+            email: 'jamielmendoza06@gmail.com',                    // Cambia esto por tu email
+            github: 'https://jamielmendoza.github.io/mi_web/'          // Cambia esto por tu GitHub
+        };
+        // ==================================
+
+        // Generar partículas
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Mostrar modal de contacto
+        function showContact(type) {
+            const modal = document.getElementById('contactModal');
+            const icon = document.getElementById('bubbleIcon');
+            const title = document.getElementById('bubbleTitle');
+            const content = document.getElementById('bubbleContent');
+            const actions = document.getElementById('bubbleActions');
+
+            // Configurar según el tipo
+            const config = {
+                linkedin: {
+                    icon: '💼',
+                    title: 'LinkedIn',
+                    data: contactData.linkedin
+                },
+                email: {
+                    icon: '📧',
+                    title: 'Correo Electrónico',
+                    data: contactData.email
+                },
+                github: {
+                    icon: '🔗',
+                    title: 'GitHub',
+                    data: contactData.github
+                }
+            };
+
+            const currentConfig = config[type];
+            icon.textContent = currentConfig.icon;
+            title.textContent = currentConfig.title;
+
+            // Mostrar los datos
+            content.innerHTML = `
+                <div class="bubble-display">${currentConfig.data}</div>
+            `;
+            
+            // Botón para visitar/copiar
+            if (type === 'email') {
+                actions.innerHTML = `
+                    <button class="bubble-btn bubble-btn-visit" onclick="window.location.href='mailto:${currentConfig.data}'">📧 Enviar Email</button>
+                    <button class="bubble-btn bubble-btn-save" onclick="copyToClipboard('${currentConfig.data}')">📋 Copiar</button>
+                `;
+            } else {
+                actions.innerHTML = `
+                    <button class="bubble-btn bubble-btn-visit" onclick="window.open('${currentConfig.data}', '_blank')">🚀 Visitar</button>
+                    <button class="bubble-btn bubble-btn-save" onclick="copyToClipboard('${currentConfig.data}')">📋 Copiar</button>
+                `;
+            }
+
+            modal.classList.add('active');
+        }
+
+        // Cerrar modal
+        function closeContact() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('active');
+        }
+
+        // Copiar al portapapeles
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ ¡Copiado al portapapeles!');
+            });
+        }
+
+        // Cerrar modal al hacer clic fuera
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContact();
+            }
+        });
+
+        // Toggle unidades
+        function toggleUnidad(header) {
+            const card = header.parentElement;
+            card.classList.toggle('expanded');
+        }
+
+        // Scroll suave a secciones
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            element.scrollIntoView({ behavior: 'smooth' });
+            
+            // Actualizar navegación activa
+            document.querySelectorAll('.nav-dot').forEach(dot => dot.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Actualizar navegación al hacer scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['hero', 'unidad1', 'unidad2'];
+            const scrollPos = window.scrollY + window.innerHeight / 2;
+            
+            sections.forEach((section, index) => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const offsetTop = element.offsetTop;
+                    const offsetBottom = offsetTop + element.offsetHeight;
+                    
+                    if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+                        document.querySelectorAll('.nav-dot').forEach(dot => dot.classList.remove('active'));
+                        document.querySelectorAll('.nav-dot')[index].classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 
