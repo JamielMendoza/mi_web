@@ -1,788 +1,427 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pr. Elvis Mendoza – Pastor, Teólogo, Conferencista, Consultor y Especialista en Liderazgo. Agenda tu cita gratuita hoy." />
-  <meta name="keywords" content="Elvis Mendoza, Pastor, Teólogo, Conferencista, Consultoría, Consejería Familiar, IA Generativa, Salud Ocupacional" />
-  <meta name="author" content="Pr. Elvis Mendoza" />
-  <title>Pr. Elvis Mendoza | Pastor · Teólogo · Conferencista · Consultor</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy: '#002347',
-            teal: '#1A9BA7',
-            'teal-light': '#22B8C6',
-            'navy-light': '#003366',
-            'teal-pale': '#E6F7F9',
-            'navy-pale': '#EEF2F7',
-          },
-          fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            body: ['Inter', 'sans-serif'],
-          },
-          boxShadow: {
-            card: '0 4px 24px rgba(0,35,71,0.08)',
-            hover: '0 12px 40px rgba(0,35,71,0.16)',
-            teal: '0 8px 32px rgba(26,155,167,0.25)',
-          },
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Thalizza García — Psicóloga cristiana, Mg. en Terapia Familiar e investigadora en salud mental. Agenda tu cita o conoce sus servicios de bienestar emocional." />
+<title>Thalizza García · Psicóloga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          rose: { 50:'#FBF1F1', 100:'#F4E0E2', 200:'#E9C2C9', 300:'#DDA3AE', 400:'#D08799', 500:'#C56C84', 600:'#A8526A' },
+          teal: { 50:'#EAF8F6', 100:'#CFEFEA', 200:'#9FDED4', 300:'#5FC6B7', 400:'#2BA89A', 500:'#1B8E82', 600:'#136F66' },
+          ink: { 400:'#7B7178', 500:'#5C535B', 600:'#3D3640', 700:'#2A2530' },
+          cream: '#FCF8F6',
+        },
+        fontFamily: {
+          display: ['Fraunces','serif'],
+          body: ['"Plus Jakarta Sans"','sans-serif'],
+        },
+        boxShadow: {
+          soft: '0 30px 60px -25px rgba(168,82,106,0.25)',
+          tealsoft: '0 30px 60px -25px rgba(19,111,102,0.3)',
         }
       }
     }
-  </script>
-  <style>
-    * { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-10px); }
-    }
-    @keyframes shimmer {
-      0%   { background-position: 200% center; }
-      100% { background-position: -200% center; }
-    }
-    @keyframes pulse-ring {
-      0%   { transform: scale(1);   opacity: .6; }
-      100% { transform: scale(1.5); opacity: 0; }
-    }
-
-    .animate-fade-up  { animation: fadeUp  0.7s ease both; }
-    .animate-fade-in  { animation: fadeIn  0.6s ease both; }
-    .delay-100 { animation-delay: .10s }
-    .delay-200 { animation-delay: .20s }
-    .delay-300 { animation-delay: .30s }
-    .delay-400 { animation-delay: .40s }
-    .delay-500 { animation-delay: .50s }
-    .delay-600 { animation-delay: .60s }
-
-    .float { animation: float 4s ease-in-out infinite; }
-
-    .hero-bg {
-      background: linear-gradient(135deg, #002347 0%, #003a6b 55%, #1A9BA7 100%);
-    }
-
-    /* Photo border glow */
-    .photo-glow {
-      filter: drop-shadow(0 24px 60px rgba(26,155,167,0.40));
-    }
-
-    /* Shimmer CTA */
-    .btn-shimmer {
-      background: linear-gradient(90deg, #1A9BA7, #22d3e4, #1A9BA7);
-      background-size: 200% auto;
-      animation: shimmer 3s linear infinite;
-    }
-    .btn-shimmer:hover {
-      animation: none;
-      background: #22B8C6;
-    }
-
-    /* Cards */
-    .service-card,
-    .social-card {
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-    .service-card:hover,
-    .social-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(0,35,71,0.14);
-    }
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Wave divider */
-    .wave-divider { line-height: 0; overflow: hidden; }
-
-    /* Quote mark */
-    .quote-mark {
-      font-family: 'Playfair Display', serif;
-      font-size: 9rem;
-      line-height: .8;
-      color: #1A9BA7;
-      opacity: .18;
-      user-select: none;
-    }
-
-    /* Service icon accent line */
-    .service-card::after {
-      content: '';
-      position: absolute;
-      inset-x: 0;
-      bottom: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #1A9BA7, #22B8C6);
-      border-radius: 0 0 1rem 1rem;
-      opacity: 0;
-      transition: opacity .25s ease;
-    }
-    .service-card:hover::after { opacity: 1; }
-    .service-card { position: relative; }
-
-    /* Online badge pulse */
-    .pulse-dot::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 9999px;
-      background: #22c55e;
-      animation: pulse-ring 1.5s ease-out infinite;
-    }
-
-    /* Mobile photo */
-    @media (max-width: 767px) {
-      .photo-mobile {
-        border-radius: 50% !important;
-        width: 160px !important;
-        height: 160px !important;
-        object-fit: cover;
-      }
-    }
-
-    /* Nav active underline */
-    .nav-link {
-      position: relative;
-      padding-bottom: 2px;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: 0;
-      width: 0; height: 2px;
-      background: #1A9BA7;
-      transition: width .25s ease;
-      border-radius: 2px;
-    }
-    .nav-link:hover::after { width: 100%; }
-
-    /* Divider gradient */
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #1A9BA7 40%, transparent);
-      opacity: .25;
-    }
-  </style>
+  }
+</script>
+<style>
+  *{scroll-behavior:smooth;}
+  body{font-family:'Plus Jakarta Sans',sans-serif; background:#FCF8F6;}
+ 
+  .eyebrow{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    font-weight:700;
+  }
+ 
+  /* ---- Signature element: breathing rings (inhale / exhale) ---- */
+  .breathe-wrap{ position:relative; }
+  .breathe-ring{
+    position:absolute; border-radius:50%;
+    border:1.5px solid rgba(43,168,154,0.35);
+    inset:0;
+    animation: breathe 7s ease-in-out infinite;
+  }
+  .breathe-ring.r2{ animation-delay: 0.9s; border-color: rgba(197,108,132,0.32); }
+  .breathe-ring.r3{ animation-delay: 1.8s; border-color: rgba(43,168,154,0.22); }
+  @keyframes breathe{
+    0%   { transform: scale(0.86); opacity:.05; }
+    35%  { transform: scale(1.04); opacity:.9; }
+    65%  { transform: scale(1.04); opacity:.9; }
+    100% { transform: scale(0.86); opacity:.05; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .breathe-ring{ animation: none; opacity:.4; }
+  }
+ 
+  /* botanical accent line, echo of growth motif */
+  .twig{
+    stroke: currentColor;
+    stroke-width: 1.4;
+    fill:none;
+    stroke-linecap: round;
+  }
+ 
+  .reveal{ opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible{ opacity:1; transform:none; }
+ 
+  .card-hover{ transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+  .card-hover:hover{ transform: translateY(-5px); }
+ 
+  .quote-mark{
+    font-family:'Fraunces',serif;
+    font-size: 6rem;
+    line-height:.6;
+    color:#DDA3AE;
+  }
+ 
+  .nav-link{ position:relative; }
+  .nav-link::after{
+    content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+    background: linear-gradient(90deg,#C56C84,#2BA89A);
+    transform: scaleX(0); transform-origin:left; transition: transform .25s ease;
+  }
+  .nav-link:hover::after{ transform: scaleX(1); }
+ 
+  .grain{
+    background-image: radial-gradient(circle at 1px 1px, rgba(58,42,48,0.06) 1px, transparent 0);
+    background-size: 14px 14px;
+  }
+</style>
 </head>
-<body class="bg-white text-navy font-body antialiased overflow-x-hidden">
-
-  <!-- ═══════════════════════════════════════════════════
-       NAV
-  ═══════════════════════════════════════════════════ -->
-  <header class="fixed top-0 inset-x-0 z-50 bg-white border-b border-navy/8 shadow-sm">
-    <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
-      <span class="font-display font-bold text-navy text-lg tracking-tight">
-        Pr.&nbsp;<span class="text-teal">Elvis</span>&nbsp;Mendoza
-      </span>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-navy/70">
-        <a href="#servicios" class="nav-link hover:text-navy transition-colors">Servicios</a>
-        <a href="#recursos"  class="nav-link hover:text-navy transition-colors">Recursos</a>
-        <a href="#sobre-mi"  class="nav-link hover:text-navy transition-colors">Sobre mí</a>
-      </nav>
-      <a href="https://wa.link/86yxuf" target="_blank" rel="noopener"
-         class="hidden md:inline-flex items-center gap-2 bg-navy text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-teal transition-colors duration-200">
-        Contáctame
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-        </svg>
+<body class="text-ink-700 antialiased overflow-x-hidden">
+ 
+<!-- ============ NAV ============ -->
+<header class="fixed top-0 inset-x-0 z-50 bg-cream/90 backdrop-blur-md border-b border-rose-200/60">
+  <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
+    <span class="font-display font-semibold text-ink-700 text-lg">
+      Thalizza <span class="text-teal-500">García</span>
+    </span>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-ink-600">
+      <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#publicaciones" class="nav-link">Publicaciones</a>
+      <a href="#recursos" class="nav-link">Recursos</a>
+    </nav>
+    <a href="https://wa.me/" target="_blank" rel="noopener"
+       class="hidden md:inline-flex items-center gap-2 bg-ink-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-teal-500 transition-colors duration-300">
+      Agendar cita
+    </a>
+  </div>
+</header>
+ 
+<!-- ============ HERO ============ -->
+<section class="relative pt-32 pb-24 grain">
+  <div class="absolute -top-10 -right-24 w-[420px] h-[420px] bg-rose-100 rounded-full blur-3xl opacity-70 pointer-events-none"></div>
+  <div class="absolute bottom-0 -left-24 w-[320px] h-[320px] bg-teal-100 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+ 
+  <div class="max-w-6xl mx-auto px-5 relative z-10">
+    <div class="grid md:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
+ 
+      <!-- Text -->
+      <div class="reveal">
+        <p class="eyebrow text-teal-500 mb-4">Psicología con propósito</p>
+        <h1 class="font-display font-semibold text-5xl md:text-6xl text-ink-700 leading-[1.05] mb-5">
+          Acompañar para<br /><span class="italic text-rose-500">transformar</span> vidas
+        </h1>
+        <p class="text-ink-500 text-base md:text-lg leading-relaxed max-w-md mb-2">
+          Thalizza García — Psicóloga cristiana, especialista en terapia familiar e investigación en salud mental.
+        </p>
+        <div class="flex flex-wrap gap-2 text-xs font-semibold text-ink-600 mt-5 mb-9">
+          <span class="bg-white border border-rose-200 px-3.5 py-1.5 rounded-full">Psicóloga cristiana</span>
+          <span class="bg-white border border-rose-200 px-3.5 py-1.5 rounded-full">Mg. en Terapia Familiar</span>
+          <span class="bg-white border border-rose-200 px-3.5 py-1.5 rounded-full">Investigación en Salud Mental</span>
+          <span class="bg-white border border-rose-200 px-3.5 py-1.5 rounded-full">Gestora de Riesgos Psicosociales</span>
+        </div>
+ 
+        <div class="flex flex-wrap gap-3">
+          <a href="https://wa.me/" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-teal-500 text-white font-bold px-7 py-3.5 rounded-full shadow-tealsoft hover:bg-teal-600 transition-colors duration-300">
+            <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Escríbeme ahora
+          </a>
+          <a href="#servicios"
+             class="inline-flex items-center gap-2 border-2 border-ink-700 text-ink-700 font-bold px-7 py-3.5 rounded-full hover:bg-ink-700 hover:text-white transition-colors duration-300">
+            Ver servicios
+          </a>
+        </div>
+      </div>
+ 
+      <!-- Portrait with breathing rings -->
+      <div class="reveal flex justify-center">
+        <div class="breathe-wrap relative w-72 h-72 md:w-80 md:h-80">
+          <div class="breathe-ring"></div>
+          <div class="breathe-ring r2"></div>
+          <div class="breathe-ring r3"></div>
+          <div class="absolute inset-6 rounded-full overflow-hidden shadow-soft ring-4 ring-white">
+            <div class="w-full h-full bg-gradient-to-br from-rose-300 via-rose-200 to-teal-200 flex items-center justify-center">
+              <span class="font-display font-semibold text-6xl text-white drop-shadow-sm">TG</span>
+            </div>
+          </div>
+          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white border border-rose-200 rounded-full px-4 py-1.5 text-[11px] font-bold text-ink-600 shadow-soft whitespace-nowrap">
+            C.Ps.P. 61015
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- ============ CONTACTO RÁPIDO ============ -->
+<section class="pb-4">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid sm:grid-cols-2 gap-4 reveal">
+      <a href="https://wa.me/" target="_blank" rel="noopener"
+         class="card-hover group flex items-center justify-between gap-4 bg-white border border-rose-200 rounded-2xl p-5 hover:border-teal-300 hover:shadow-tealsoft">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-teal-50 group-hover:bg-teal-500 flex items-center justify-center transition-colors duration-300 flex-shrink-0">
+            <svg class="w-6 h-6 text-teal-500 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </div>
+          <div>
+            <p class="font-bold text-ink-700 text-sm">WhatsApp</p>
+            <p class="text-ink-500 text-xs">Contacto directo y consultas</p>
+          </div>
+        </div>
+        <span class="text-xs font-bold text-teal-500 group-hover:translate-x-1 transition-transform">→</span>
+      </a>
+ 
+      <a href="https://wa.me/" target="_blank" rel="noopener"
+         class="card-hover group flex items-center justify-between gap-4 bg-white border border-rose-200 rounded-2xl p-5 hover:border-rose-300 hover:shadow-soft">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-rose-50 group-hover:bg-rose-400 flex items-center justify-center transition-colors duration-300 flex-shrink-0">
+            <svg class="w-6 h-6 text-rose-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-1a4 4 0 00-4-4M9 20H4v-1a4 4 0 014-4m6-7a3 3 0 11-6 0 3 3 0 016 0zm6 3a3 3 0 11-6 0 3 3 0 016 0zM6 9a3 3 0 116 0 3 3 0 01-6 0z"/></svg>
+          </div>
+          <div>
+            <p class="font-bold text-ink-700 text-sm">Canal de WhatsApp</p>
+            <p class="text-ink-500 text-xs">Contenido de salud mental</p>
+          </div>
+        </div>
+        <span class="text-xs font-bold text-rose-400 group-hover:translate-x-1 transition-transform">→</span>
       </a>
     </div>
-  </header>
-
-  <!-- ═══════════════════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════════════════ -->
-  <section id="hero" class="hero-bg min-h-screen pt-16 flex items-center relative overflow-hidden">
-    <!-- Decorative blobs -->
-    <div class="absolute -top-24 -right-24 w-[480px] h-[480px] bg-teal/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 -left-32 w-[360px] h-[360px] bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
-
-    <div class="max-w-6xl mx-auto px-5 py-16 w-full">
-      <div class="flex flex-col md:flex-row items-center gap-12 md:gap-8">
-
-        <!-- Photo -->
-        <div class="flex-shrink-0 flex justify-center md:justify-end md:w-1/2 animate-fade-in">
-          <!-- Mobile circle -->
-          <div class="md:hidden">
-            <div style="border-radius:50%; display:inline-block; padding:4px; background:linear-gradient(135deg,#1A9BA7,#ffffff33,#1A9BA7);">
-              <img src="edi.png" alt="Pr. Elvis Mendoza" class="photo-mobile" style="border-radius:50%;width:160px;height:160px;object-fit:cover;display:block;" />
-            </div>
-          </div>
-          <!-- Desktop full -->
-          <div class="hidden md:flex items-end justify-center float photo-glow">
-            <img src="foto_elvis.png" alt="Pr. Elvis Mendoza"
-                 class="w-[30rem] h-[38rem] lg:w-[42rem] lg:h-[52rem] object-contain object-bottom" />
-          </div>
-        </div>
-
-        <!-- Text -->
-        <div class="md:w-1/2 text-white text-center md:text-left">
-          <p class="animate-fade-up delay-100 inline-block text-teal-light font-semibold text-sm tracking-widest uppercase mb-3 bg-white/10 px-4 py-1.5 rounded-full border border-teal/30">
-            Pastor · Teólogo · Conferencista
-          </p>
-          <h1 class="animate-fade-up delay-200 font-display font-extrabold leading-tight text-5xl md:text-6xl lg:text-7xl mb-4">
-            Pr.&nbsp;Elvis<br /><span class="text-teal-light">Mendoza</span>
-          </h1>
-          <p class="animate-fade-up delay-300 text-white/70 text-sm md:text-base font-medium mb-8 leading-relaxed max-w-xl mx-auto md:mx-0">
-            Pastor de IASD  &nbsp;|&nbsp; Teólogo  &nbsp;|&nbsp; Líder de Publicaciones<br />
-            MBA Liderazgo (en curso)  &nbsp;|&nbsp; MBA Digital Business (en curso)<br />
-            Conferencista  &nbsp;|&nbsp; Investigador  &nbsp;|&nbsp; Consultor en Ventas<br />
-            Consejero Familiar  &nbsp;|&nbsp; IA Generativa  &nbsp;|&nbsp; Salud Ocupacional
-          </p>
-
-          <!-- CTA Cards -->
-          <div class="animate-fade-up delay-400 max-w-xl mx-auto md:mx-0 space-y-3">
-            <!-- WhatsApp directo -->
-            <a href="https://wa.link/86yxuf " target="_blank" rel="noopener"
-               class="group flex items-center justify-between p-5 bg-white/8 border border-white/15 rounded-2xl hover:border-teal/60 hover:bg-white/12 transition-all duration-300 backdrop-blur-sm">
-              <div class="flex items-center gap-4">
-                <div class="p-3 bg-green-500 rounded-xl flex-shrink-0">
-                  <!-- WhatsApp icon -->
-                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                  </svg>
-                </div>
-                <div class="text-left">
-                  <p class="font-bold text-white text-sm">WhatsApp directo</p>
-                  <p class="text-white/60 text-xs">Consultas y contacto inmediato</p>
-                </div>
-              </div>
-              <span class="hidden sm:flex items-center gap-1.5 bg-green-500 text-white px-4 py-2 rounded-full text-xs font-bold">
-                ESCRIBIR
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-              </span>
-            </a>
-
-            <!-- Canal WhatsApp -->
-            <a href=" https://whatsapp.com/channel/0029VacVWheKwqSYgaFhxM0p" target="_blank" rel="noopener"
-               class="group flex items-center justify-between p-5 bg-white/8 border border-white/15 rounded-2xl hover:border-teal/60 hover:bg-white/12 transition-all duration-300 backdrop-blur-sm">
-              <div class="flex items-center gap-4">
-                <div class="p-3 bg-teal/80 rounded-xl flex-shrink-0">
-                  <!-- Broadcast / channel icon -->
-                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
-                  </svg>
-                </div>
-                <div class="text-left">
-                  <p class="font-bold text-white text-sm">Canal de WhatsApp</p>
-                  <p class="text-white/60 text-xs">Reflexiones y contenido exclusivo diario</p>
-                </div>
-              </div>
-              <span class="hidden sm:flex items-center gap-1.5 bg-teal text-white px-4 py-2 rounded-full text-xs font-bold">
-                UNIRME
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-              </span>
-            </a>
-          </div>
-
-          <!-- Stats -->
-          <div class="animate-fade-up delay-600 mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto md:mx-0">
-            <div class="text-center md:text-left">
-              <p class="font-display font-bold text-3xl text-teal-light">+10</p>
-              <p class="text-white/50 text-xs mt-1 uppercase tracking-wide">Años liderando</p>
-            </div>
-            <div class="text-center md:text-left border-x border-white/15 px-4">
-              <p class="font-display font-bold text-3xl text-teal-light">8</p>
-              <p class="text-white/50 text-xs mt-1 uppercase tracking-wide">Áreas de servicio</p>
-            </div>
-            <div class="text-center md:text-left">
-              <p class="font-display font-bold text-3xl text-teal-light">100%</p>
-              <p class="text-white/50 text-xs mt-1 uppercase tracking-wide">Compromiso</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="wave-divider absolute bottom-0 inset-x-0">
-      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0 60 C360 0 1080 0 1440 60 L1440 60 L0 60Z" fill="#ffffff"/>
-      </svg>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       REDES SOCIALES
-  ═══════════════════════════════════════════════════ -->
-  <section class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-5">
-      <div class="text-center mb-12 reveal">
-        <p class="text-teal font-semibold text-sm tracking-widest uppercase mb-2">Sígueme</p>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-navy">Conecta conmigo</h2>
-        <p class="text-navy/50 mt-3 max-w-lg mx-auto">Elige tu plataforma favorita para recibir contenido, recursos y novedades.</p>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-3 sm:grid sm:grid-cols-4 md:grid-cols-7 sm:gap-4 lg:gap-5">
-
-        <!-- WhatsApp -->
-        <a href="https://wa.link/86yxuf" target="_blank" rel="noopener"
-           class="social-card group bg-white border border-gray-100 rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-card hover:border-green-400 hover:shadow-hover w-14 h-14 sm:w-auto sm:h-auto">
-          <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-xl bg-green-50 group-hover:bg-green-500 transition-colors duration-200 flex items-center justify-center sm:mb-4">
-            <svg class="w-5 h-5 sm:w-7 sm:h-7 text-green-500 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-          </div>
-          <p class="font-semibold text-navy text-sm hidden sm:block">WhatsApp</p>
-          <p class="text-navy/45 text-[11px] mt-0.5 leading-tight hidden lg:block">Contacto directo</p>
-        </a>
-
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/elvismendozaoficial/" target="_blank" rel="noopener"
-           class="social-card group bg-white border border-gray-100 rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-card hover:border-pink-400 hover:shadow-hover w-14 h-14 sm:w-auto sm:h-auto">
-          <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-xl bg-pink-50 group-hover:bg-gradient-to-br group-hover:from-purple-500 group-hover:via-pink-500 group-hover:to-orange-400 transition-all duration-200 flex items-center justify-center sm:mb-4">
-            <svg class="w-5 h-5 sm:w-7 sm:h-7 text-pink-500 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-            </svg>
-          </div>
-          <p class="font-semibold text-navy text-sm hidden sm:block">Instagram</p>
-          <p class="text-navy/45 text-[11px] mt-0.5 leading-tight hidden lg:block">Contenido diario</p>
-        </a>
-
-        <!-- TikTok -->
-        <a href="https://www.tiktok.com/@elvismendozaoficial" target="_blank" rel="noopener"
-           class="social-card group bg-white border border-gray-100 rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-card hover:border-gray-400 hover:shadow-hover w-14 h-14 sm:w-auto sm:h-auto">
-          <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-xl bg-gray-50 group-hover:bg-gray-900 transition-colors duration-200 flex items-center justify-center sm:mb-4">
-            <svg class="w-5 h-5 sm:w-7 sm:h-7 text-gray-700 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-            </svg>
-          </div>
-          <p class="font-semibold text-navy text-sm hidden sm:block">TikTok</p>
-          <p class="text-navy/45 text-[11px] mt-0.5 leading-tight hidden lg:block">Videos cortos</p>
-        </a>
-
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/ElvisMendozaOficial" target="_blank" rel="noopener"
-           class="social-card group bg-white border border-gray-100 rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-card hover:border-blue-400 hover:shadow-hover w-14 h-14 sm:w-auto sm:h-auto">
-          <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-xl bg-blue-50 group-hover:bg-blue-600 transition-colors duration-200 flex items-center justify-center sm:mb-4">
-            <svg class="w-5 h-5 sm:w-7 sm:h-7 text-blue-600 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </div>
-          <p class="font-semibold text-navy text-sm hidden sm:block">Facebook</p>
-          <p class="text-navy/45 text-[11px] mt-0.5 leading-tight hidden lg:block">Comunidad</p>
-        </a>
-
-        <!-- YouTube -->
-        <a href="https://www.youtube.com/@elvismendozaoficial" target="_blank" rel="noopener"
-           class="social-card group bg-white border border-gray-100 rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-card hover:border-red-400 hover:shadow-hover w-14 h-14 sm:w-auto sm:h-auto">
-          <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-xl bg-red-50 group-hover:bg-red-600 transition-colors duration-200 flex items-center justify-center sm:mb-4">
-            <svg class="w-5 h-5 sm:w-7 sm:h-7 text-red-600 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
-            </svg>
-          </div>
-          <p class="font-semibold text-navy text-sm hidden sm:block">YouTube</p>
-          <p class="text-navy/45 text-[11px] mt-0.5 leading-tight hidden lg:block">Clases y videos</p>
-        </a>
-
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/elvismendozaoficial/" target="_blank" rel="noopener"
-           class="social-card group bg-white border border-gray-100 rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-card hover:border-sky-500 hover:shadow-hover w-14 h-14 sm:w-auto sm:h-auto">
-          <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-xl bg-sky-50 group-hover:bg-sky-700 transition-colors duration-200 flex items-center justify-center sm:mb-4">
-            <svg class="w-5 h-5 sm:w-7 sm:h-7 text-sky-700 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-          </div>
-          <p class="font-semibold text-navy text-sm hidden sm:block">LinkedIn</p>
-          <p class="text-navy/45 text-[11px] mt-0.5 leading-tight hidden lg:block">Perfil prof.</p>
-        </a>
-
-        <!-- X / Twitter -->
-        <a href="https://x.com/elvismendozaco?s=21" target="_blank" rel="noopener"
-           class="social-card group bg-white border border-gray-100 rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-card hover:border-black hover:shadow-hover w-14 h-14 sm:w-auto sm:h-auto">
-          <div class="w-8 h-8 sm:w-14 sm:h-14 rounded-xl bg-gray-50 group-hover:bg-black transition-colors duration-200 flex items-center justify-center sm:mb-4">
-            <svg class="w-5 h-5 sm:w-7 sm:h-7 text-black group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.847h-7.406l-5.8-7.584-6.64 7.584H.472l8.6-9.83L0 1.153h7.594l5.243 6.932L18.901 1.153zm-1.29 19.494h2.039L6.486 3.246H4.298L17.611 20.647z"/>
-            </svg>
-          </div>
-          <p class="font-semibold text-navy text-sm hidden sm:block">X (Twitter)</p>
-          <p class="text-navy/45 text-[11px] mt-0.5 leading-tight hidden lg:block">Actualidad</p>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider mx-auto max-w-4xl"></div>
-
-  <!-- ═══════════════════════════════════════════════════
-       SOBRE MÍ
-  ═══════════════════════════════════════════════════ -->
-  <section id="sobre-mi" class="py-20 bg-navy-pale">
-    <div class="max-w-5xl mx-auto px-5">
-      <div class="flex flex-col lg:flex-row items-center gap-14 reveal">
-        <!-- Decorative badge -->
-        <div class="lg:w-2/5 flex-shrink-0 flex justify-center">
-          <div class="relative w-64 h-64 md:w-72 md:h-72">
-            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-teal/20 to-navy/30"></div>
-            <div class="absolute inset-4 rounded-full bg-gradient-to-br from-teal to-navy flex items-center justify-center shadow-teal">
-              <div class="text-center text-white px-6">
-                <p class="font-display font-bold text-5xl">Fe</p>
-                <div class="w-8 h-px bg-teal-light mx-auto my-2"></div>
-                <p class="text-teal-light text-sm font-semibold uppercase tracking-widest">Liderazgo</p>
-                <div class="w-8 h-px bg-teal-light mx-auto my-2"></div>
-                <p class="font-semibold text-sm">Propósito</p>
-              </div>
-            </div>
-            <div class="absolute top-3 right-8 w-4 h-4 bg-teal rounded-full shadow-teal"></div>
-            <div class="absolute bottom-6 left-4 w-3 h-3 bg-teal-light rounded-full opacity-70"></div>
-          </div>
-        </div>
-        <div class="lg:w-3/5">
-          <p class="text-teal font-semibold text-sm tracking-widest uppercase mb-3">Mi historia</p>
-          <h2 class="font-display font-bold text-4xl md:text-5xl text-navy mb-6 leading-tight">Sobre mí</h2>
-          <div class="space-y-5 text-navy/70 text-base md:text-lg leading-relaxed">
-            <p>Pastor y líder integral al servicio de Dios y la comunidad. Comprometido con fortalecer la fe, la salud emocional, el liderazgo con propósito y el bienestar integral de cada persona y organización con la que colaboro.</p>
-            <div class="w-12 h-1 bg-teal rounded-full"></div>
-            <p class="font-medium text-navy/85 italic">"Mi propósito: capacitar, inspirar y guiar a las personas a cumplir su misión con fe, herramientas, visión y esperanza."</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       SERVICIOS — iconos correctos por área
-  ═══════════════════════════════════════════════════ -->
-  <section id="servicios" class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-5">
-      <div class="text-center mb-14 reveal">
-        <p class="text-teal font-semibold text-sm tracking-widest uppercase mb-2">¿En qué puedo ayudarte?</p>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-navy">Servicios</h2>
-        <p class="text-navy/50 mt-3 max-w-lg mx-auto">Soluciones integrales para tu crecimiento personal, profesional y espiritual.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- 1 · Ministerio Pastoral -->
-        <div class="service-card group bg-white border border-gray-100 rounded-2xl p-8 shadow-card hover:border-teal/40 reveal">
-          <div class="w-14 h-14 rounded-xl bg-teal-pale group-hover:bg-teal transition-colors duration-200 flex items-center justify-center mb-5">
-            <!-- Cruz / iglesia -->
-            <svg class="w-7 h-7 text-teal group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v20M2 9h20"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold text-xl text-navy mb-2">Ministerio Pastoral y Discipulado</h3>
-          <p class="text-navy/55 text-sm leading-relaxed">Predicación bíblica, acompañamiento espiritual, formación de discípulos, semanas de oración, evangelismo y fortalecimiento de la vida cristiana.</p>
-          <div class="mt-8">
-            <a href="https://wa.link/llcvbc" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 bg-teal text-white font-bold px-7 py-3 rounded-full hover:bg-teal-light transition-colors duration-200 shadow-teal text-sm">
-              Solicita información
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- 2 · Liderazgo Juvenil -->
-        <div class="service-card group bg-white border border-gray-100 rounded-2xl p-8 shadow-card hover:border-teal/40 reveal">
-          <div class="w-14 h-14 rounded-xl bg-teal-pale group-hover:bg-teal transition-colors duration-200 flex items-center justify-center mb-5">
-            <!-- Estrella / potencial joven -->
-            <svg class="w-7 h-7 text-teal group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold text-xl text-navy mb-2">Liderazgo Juvenil y Proyecto de Vida</h3>
-          <p class="text-navy/55 text-sm leading-relaxed">Mentoría para adolescentes y jóvenes en liderazgo, vocación, emprendimiento, relaciones saludables y crecimiento espiritual.</p>
-          <div class="mt-8">
-            <a href="https://wa.link/b5wvmg" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 bg-teal text-white font-bold px-7 py-3 rounded-full hover:bg-teal-light transition-colors duration-200 shadow-teal text-sm">
-              Solicita información
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- 3 · Colportaje y Ventas -->
-        <div class="service-card group bg-white border border-gray-100 rounded-2xl p-8 shadow-card hover:border-teal/40 reveal">
-          <div class="w-14 h-14 rounded-xl bg-teal-pale group-hover:bg-teal transition-colors duration-200 flex items-center justify-center mb-5">
-            <!-- Libro + precio → ventas de publicaciones -->
-            <svg class="w-7 h-7 text-teal group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold text-xl text-navy mb-2">Colportaje y Ventas con Propósito</h3>
-          <p class="text-navy/55 text-sm leading-relaxed">Capacitación en el arte cristiano de las ventas, evangelismo mediante publicaciones, liderazgo comercial y desarrollo de equipos de alto desempeño.</p>
-          <div class="mt-8">
-            <a href="https://wa.link/6rdvw3" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 bg-teal text-white font-bold px-7 py-3 rounded-full hover:bg-teal-light transition-colors duration-200 shadow-teal text-sm">
-              Solicita información
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- 4 · Consejería Familiar -->
-        <div class="service-card group bg-white border border-gray-100 rounded-2xl p-8 shadow-card hover:border-teal/40 reveal">
-          <div class="w-14 h-14 rounded-xl bg-teal-pale group-hover:bg-teal transition-colors duration-200 flex items-center justify-center mb-5">
-            <!-- Corazón / familia -->
-            <svg class="w-7 h-7 text-teal group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold text-xl text-navy mb-2">Consejería Familiar y de Pareja</h3>
-          <p class="text-navy/55 text-sm leading-relaxed">Acompañamiento profesional y basado en principios bíblicos para fortalecer relaciones, resolver conflictos y construir familias saludables.</p>
-          <div class="mt-8">
-            <a href="https://wa.link/wf7gkb" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 bg-teal text-white font-bold px-7 py-3 rounded-full hover:bg-teal-light transition-colors duration-200 shadow-teal text-sm">
-              Solicita información
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- 5 · Conferencias y Talleres -->
-        <div class="service-card group bg-white border border-gray-100 rounded-2xl p-8 shadow-card hover:border-teal/40 reveal">
-          <div class="w-14 h-14 rounded-xl bg-teal-pale group-hover:bg-teal transition-colors duration-200 flex items-center justify-center mb-5">
-            <!-- Micrófono -->
-            <svg class="w-7 h-7 text-teal group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold text-xl text-navy mb-2">Conferencias, Seminarios y Talleres de Liderazgo</h3>
-          <p class="text-navy/55 text-sm leading-relaxed">Formación inspiradora y práctica en liderazgo, comunicación, trabajo en equipo, desarrollo personal y crecimiento organizacional.</p>
-          <div class="mt-8">
-            <a href="https://wa.link/qf6h5a" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 bg-teal text-white font-bold px-7 py-3 rounded-full hover:bg-teal-light transition-colors duration-200 shadow-teal text-sm">
-              Solicita información
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- 6 · IA Generativa -->
-        <div class="service-card group bg-white border border-gray-100 rounded-2xl p-8 shadow-card hover:border-teal/40 reveal">
-          <div class="w-14 h-14 rounded-xl bg-teal-pale group-hover:bg-teal transition-colors duration-200 flex items-center justify-center mb-5">
-            <!-- Circuito / chip → IA -->
-            <svg class="w-7 h-7 text-teal group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H7a2 2 0 00-2 2v2M9 3h6M9 3V1m6 2h2a2 2 0 012 2v2M15 3V1M21 9v6M21 9h2M21 15h2M3 9v6M3 9H1M3 15H1M9 21H7a2 2 0 01-2-2v-2m4 4h6m-6 0v2m6-2h2a2 2 0 002-2v-2m-2 4v2M9 9h6v6H9z"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold text-xl text-navy mb-2">Innovación e Inteligencia Artificial</h3>
-          <p class="text-navy/55 text-sm leading-relaxed">Capacitación e implementación de herramientas de IA para educación, ministerios, emprendimientos y organizaciones.</p>
-          <div class="mt-8">
-            <a href="https://wa.link/qunci4" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 bg-teal text-white font-bold px-7 py-3 rounded-full hover:bg-teal-light transition-colors duration-200 shadow-teal text-sm">
-              Solicita información
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- 7 · Investigación Académica -->
-        <div class="service-card group bg-white border border-gray-100 rounded-2xl p-8 shadow-card hover:border-teal/40 reveal">
-          <div class="w-14 h-14 rounded-xl bg-teal-pale group-hover:bg-teal transition-colors duration-200 flex items-center justify-center mb-5">
-            <!-- Lupa / investigación -->
-            <svg class="w-7 h-7 text-teal group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold text-xl text-navy mb-2">Investigación y Desarrollo Académico</h3>
-          <p class="text-navy/55 text-sm leading-relaxed">Asesoría en tesis, artículos científicos, metodología de investigación, psicometría, análisis estadístico y publicación académica.</p>
-          <div class="mt-8">
-            <a href="https://wa.link/logkmz" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 bg-teal text-white font-bold px-7 py-3 rounded-full hover:bg-teal-light transition-colors duration-200 shadow-teal text-sm">
-              Solicita información
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- 8 · Salud Ocupacional -->
-        <div class="service-card group bg-white border border-gray-100 rounded-2xl p-8 shadow-card hover:border-teal/40 reveal">
-          <div class="w-14 h-14 rounded-xl bg-teal-pale group-hover:bg-teal transition-colors duration-200 flex items-center justify-center mb-5">
-            <!-- Corazón con pulso / salud -->
-            <svg class="w-7 h-7 text-teal group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h3l2-4 4 8 2-4h4"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-bold text-xl text-navy mb-2">Salud Ocupacional y Bienestar Laboral</h3>
-          <p class="text-navy/55 text-sm leading-relaxed">Programas orientados a la salud mental, prevención de riesgos psicosociales, bienestar organizacional y fortalecimiento del clima laboral.</p>
-          <div class="mt-8">
-            <a href="https://wa.link/86kz8v" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 bg-teal text-white font-bold px-7 py-3 rounded-full hover:bg-teal-light transition-colors duration-200 shadow-teal text-sm">
-              Solicita información
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       RECURSOS DESCARGABLES
-  ═══════════════════════════════════════════════════ -->
-  <section id="recursos" class="py-20 bg-navy-pale">
-    <div class="max-w-6xl mx-auto px-5">
-      <div class="text-center mb-14 reveal">
-        <p class="text-teal font-semibold text-sm tracking-widest uppercase mb-2">Material gratuito</p>
-        <h2 class="font-display font-bold text-4xl md:text-5xl text-navy">Recursos</h2>
-        <p class="text-navy/50 mt-3 max-w-lg mx-auto">Descarga libros, artículos y documentos en PDF para tu crecimiento personal, espiritual y profesional.</p>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-6">
-        <div class="service-card group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-card hover:border-teal/40 reveal w-full sm:w-[360px]">
-          <div class="bg-gradient-to-br from-teal to-navy p-6 flex items-center justify-between">
-            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-              <!-- Google Drive icon -->
-              <svg class="w-7 h-7 text-white" viewBox="0 0 87.3 78" fill="currentColor">
-                <path d="M6.6 67.3L0 78h20.8l6.6-10.7H6.6z"/>
-                <path d="M59.9 0H39.1l27.4 47.3h20.8L59.9 0z"/>
-                <path d="M27.4 0L0 47.3l10.4 18L47.8 0H27.4z"/>
-                <path d="M49.5 30.7L22.1 78h54.8l10.4-18H49.5z"/>
-              </svg>
-            </div>
-            <span class="text-xs font-bold text-white/80 bg-white/15 px-3 py-1 rounded-full uppercase tracking-wider">Recursos</span>
-          </div>
-          <div class="p-6">
-            <h3 class="font-display font-bold text-lg text-navy mb-2 leading-snug">Biblioteca Digital</h3>
-            <p class="text-navy/55 text-sm leading-relaxed mb-5">Explora libros, guías, documentos, plantillas y otros recursos disponibles para descarga gratuita.</p>
-            <a href="https://drive.google.com/drive/folders/1z0Oo-esS40ErhLcNtl78ChXQYTk9pz25?usp=sharing"
-               target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 bg-teal text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-teal-light transition-colors duration-200">
-              <svg class="w-4 h-4" viewBox="0 0 87.3 78" fill="currentColor">
-                <path d="M6.6 67.3L0 78h20.8l6.6-10.7H6.6z"/>
-                <path d="M59.9 0H39.1l27.4 47.3h20.8L59.9 0z"/>
-                <path d="M27.4 0L0 47.3l10.4 18L47.8 0H27.4z"/>
-                <path d="M49.5 30.7L22.1 78h54.8l10.4-18H49.5z"/>
-              </svg>
-              Ver recursos
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       CURSO BÍBLICO GRATIS
-  ═══════════════════════════════════════════════════ -->
-  <section class="py-24 bg-navy relative overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute -top-20 -right-20 w-96 h-96 bg-teal/10 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-2xl"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/5 rounded-full"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-white/5 rounded-full"></div>
-    </div>
-    <div class="max-w-4xl mx-auto px-5 text-center relative z-10 reveal">
-      <div class="inline-flex items-center gap-2 bg-teal/20 text-teal-light font-semibold text-sm px-5 py-2 rounded-full mb-6 border border-teal/30">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+  </div>
+</section>
+ 
+<!-- ============ SOBRE MÍ ============ -->
+<section id="sobre-mi" class="py-24">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="grid md:grid-cols-[0.85fr_1.15fr] gap-12 items-center reveal">
+ 
+      <div class="flex justify-center">
+        <svg viewBox="0 0 160 220" class="w-40 text-rose-400">
+          <path class="twig" d="M80 10 C 80 70, 80 150, 80 210"/>
+          <path class="twig" d="M80 50 C 60 40, 45 25, 38 15"/>
+          <path class="twig" d="M80 80 C 102 70, 118 55, 126 44"/>
+          <path class="twig" d="M80 115 C 58 107, 42 92, 34 80"/>
+          <path class="twig" d="M80 150 C 104 142, 120 126, 128 114"/>
+          <circle cx="38" cy="15" r="4" fill="currentColor" stroke="none"/>
+          <circle cx="126" cy="44" r="4" fill="currentColor" stroke="none"/>
+          <circle cx="34" cy="80" r="4" fill="currentColor" stroke="none"/>
+          <circle cx="128" cy="114" r="4" fill="currentColor" stroke="none"/>
         </svg>
-        Completamente gratis
       </div>
-      <h2 class="font-display font-bold text-4xl md:text-6xl text-white mb-6 leading-tight">
-        CURSO BÍBLICO<br /><span class="text-teal-light">GRATIS</span>
-      </h2>
-      <p class="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-3 leading-relaxed">Conoce la verdad y transforma tu vida.</p>
-      <p class="text-white/55 text-base md:text-lg max-w-xl mx-auto mb-12">Estudia la Biblia en línea, completamente gratis y sin compromiso.</p>
-      <div class="flex flex-wrap justify-center gap-5 mb-12">
-        <div class="flex items-center gap-2 text-white/70 text-sm">
-          <svg class="w-5 h-5 text-teal-light flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          Sin costo alguno
-        </div>
-        <div class="flex items-center gap-2 text-white/70 text-sm">
-          <svg class="w-5 h-5 text-teal-light flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          A tu propio ritmo
-        </div>
-        <div class="flex items-center gap-2 text-white/70 text-sm">
-          <svg class="w-5 h-5 text-teal-light flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          Sin compromiso
-        </div>
-        <div class="flex items-center gap-2 text-white/70 text-sm">
-          <svg class="w-5 h-5 text-teal-light flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          Guía personalizada
+ 
+      <div>
+        <p class="eyebrow text-rose-500 mb-3">Mi historia</p>
+        <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink-700 mb-6">Sobre mí</h2>
+        <p class="text-ink-500 text-base md:text-lg leading-relaxed mb-6">
+          Psicóloga licenciada y colegiada <span class="font-semibold text-ink-700">(C.Ps.P. 61015)</span>, apasionada por la salud mental y el bienestar emocional. Acompaño a las personas en su proceso de crecimiento y transformación mediante una atención profesional basada en la empatía, la ética y la evidencia científica.
+        </p>
+        <div class="border-l-4 border-teal-400 pl-5">
+          <p class="font-display italic text-xl text-ink-700">
+            "Investigar para comprender, acompañar para transformar vidas."
+          </p>
         </div>
       </div>
-      <a href="https://wa.link/z54jyz" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-3 bg-teal text-white font-bold text-xl px-12 py-5 rounded-full shadow-teal hover:bg-teal-light hover:scale-105 transition-all duration-200">
-        <!-- Biblia / libro abierto -->
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-        </svg>
-        ¡EMPECEMOS JUNTOS!
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- ============ SERVICIOS ============ -->
+<section id="servicios" class="py-24 bg-white border-t border-b border-rose-100">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-14 reveal">
+      <p class="eyebrow text-teal-500 mb-3">¿En qué puedo ayudarte?</p>
+      <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink-700">Servicios psicológicos</h2>
+    </div>
+ 
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+ 
+      <!-- 1 -->
+      <div class="reveal card-hover bg-cream border border-rose-100 rounded-2xl p-7 hover:shadow-tealsoft hover:border-teal-200">
+        <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3a6 6 0 016 6c0 1.887-.454 3.665-1.257 5.234-.696 1.357-.81 2.948.257 4.016A2 2 0 0115.586 21H8.414a2 2 0 01-1.414-3.75c1.067-1.068.953-2.66.257-4.016C6.454 12.665 6 10.887 6 9a6 6 0 016-6z"/></svg>
+        </div>
+        <span class="inline-block bg-teal-50 text-teal-600 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3">Terapia individual</span>
+        <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">Salud mental y bienestar</h3>
+        <p class="text-ink-500 text-sm leading-relaxed">Acompañamiento para mejorar tu bienestar emocional.</p>
+      </div>
+ 
+      <!-- 2 -->
+      <div class="reveal card-hover bg-cream border border-rose-100 rounded-2xl p-7 hover:shadow-soft hover:border-rose-200">
+        <div class="w-12 h-12 rounded-xl bg-rose-50 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-1a4 4 0 00-4-4M9 20H4v-1a4 4 0 014-4m6-7a3 3 0 11-6 0 3 3 0 016 0zm6 3a3 3 0 11-6 0 3 3 0 016 0zM6 9a3 3 0 116 0 3 3 0 01-6 0z"/></svg>
+        </div>
+        <span class="inline-block bg-rose-50 text-rose-500 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3">Fortalece vínculos</span>
+        <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">Terapia familiar</h3>
+        <p class="text-ink-500 text-sm leading-relaxed">Mejora la comunicación y fortalece las relaciones familiares.</p>
+      </div>
+ 
+      <!-- 3 -->
+      <div class="reveal card-hover bg-cream border border-rose-100 rounded-2xl p-7 hover:shadow-tealsoft hover:border-teal-200">
+        <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+        <span class="inline-block bg-teal-50 text-teal-600 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3">Investigación · Tesis · Publicación</span>
+        <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">Investigación en salud mental</h3>
+        <p class="text-ink-500 text-sm leading-relaxed">Asesoría en tesis, artículos científicos y proyectos académicos.</p>
+      </div>
+ 
+      <!-- 4 -->
+      <div class="reveal card-hover bg-cream border border-rose-100 rounded-2xl p-7 hover:shadow-soft hover:border-rose-200">
+        <div class="w-12 h-12 rounded-xl bg-rose-50 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z"/></svg>
+        </div>
+        <span class="inline-block bg-rose-50 text-rose-500 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3">Educación · Empresas · Familias</span>
+        <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">Conferencias y talleres</h3>
+        <p class="text-ink-500 text-sm leading-relaxed">Capacitaciones en bienestar emocional, prevención y promoción de la salud mental.</p>
+      </div>
+ 
+      <!-- 5 -->
+      <div class="reveal card-hover bg-cream border border-rose-100 rounded-2xl p-7 hover:shadow-tealsoft hover:border-teal-200">
+        <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+        </div>
+        <span class="inline-block bg-teal-50 text-teal-600 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3">Diagnóstico y guía</span>
+        <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">Evaluación y orientación psicológica</h3>
+        <p class="text-ink-500 text-sm leading-relaxed">Evaluaciones psicológicas para conocer y potenciar tu bienestar.</p>
+      </div>
+ 
+      <!-- 6 -->
+      <div class="reveal card-hover bg-cream border border-rose-100 rounded-2xl p-7 hover:shadow-soft hover:border-rose-200">
+        <div class="w-12 h-12 rounded-xl bg-rose-50 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75M21 12c0 4.556-3.04 8.27-7.207 9.53-.524.155-1.062.155-1.586 0C8.04 20.27 5 16.556 5 12V6.236a1 1 0 01.553-.894l6-3a1 1 0 01.894 0l6 3a1 1 0 01.553.894V12z"/></svg>
+        </div>
+        <span class="inline-block bg-rose-50 text-rose-500 text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3">Empresas e instituciones</span>
+        <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">Gestión de riesgos psicosociales</h3>
+        <p class="text-ink-500 text-sm leading-relaxed">Promovemos entornos laborales saludables y productivos.</p>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<!-- ============ PUBLICACIONES ============ -->
+<section id="publicaciones" class="py-20 bg-ink-700 relative overflow-hidden">
+  <div class="absolute -top-16 -right-16 w-72 h-72 bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="max-w-5xl mx-auto px-5 relative z-10 reveal">
+    <div class="grid md:grid-cols-[1.2fr_1fr] gap-10 items-center">
+      <div>
+        <p class="eyebrow text-teal-300 mb-3">Trabajo académico</p>
+        <h2 class="font-display font-semibold text-3xl md:text-4xl text-white mb-4">Publicaciones científicas</h2>
+        <p class="text-white/65 text-base leading-relaxed mb-6 max-w-md">
+          Consulta mis contribuciones científicas en salud mental y bienestar psicológico.
+        </p>
+        <a href="#" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-teal-400 text-ink-700 font-bold px-6 py-3 rounded-full hover:bg-white transition-colors duration-300 text-sm">
+          Ver publicaciones →
+        </a>
+      </div>
+      <div class="grid gap-3">
+        <div class="flex items-center gap-3 bg-white/8 border border-white/10 rounded-xl px-5 py-3.5">
+          <svg class="w-5 h-5 text-teal-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span class="text-white/80 text-sm font-medium">Artículos indexados</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/8 border border-white/10 rounded-xl px-5 py-3.5">
+          <svg class="w-5 h-5 text-rose-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V9m4 8V5m4 12v-6M5 17v-3"/></svg>
+          <span class="text-white/80 text-sm font-medium">Estudios de investigación</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/8 border border-white/10 rounded-xl px-5 py-3.5">
+          <svg class="w-5 h-5 text-teal-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          <span class="text-white/80 text-sm font-medium">Capítulos y ponencias académicas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ============ RECURSOS ============ -->
+<section id="recursos" class="py-20 bg-rose-50">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="reveal bg-white border border-rose-200 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft">
+      <div class="flex items-center gap-5">
+        <div class="w-14 h-14 rounded-2xl bg-rose-100 flex items-center justify-center flex-shrink-0">
+          <svg class="w-7 h-7 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold text-xl text-ink-700 mb-1">Recursos gratuitos</h3>
+          <p class="text-ink-500 text-sm">Puedes descargar libros, artículos y documentos en PDF.</p>
+        </div>
+      </div>
+      <a href="#" target="_blank" rel="noopener"
+         class="flex-shrink-0 inline-flex items-center gap-2 bg-ink-700 text-white font-bold px-6 py-3 rounded-full hover:bg-rose-500 transition-colors duration-300 text-sm">
+        Ver recursos →
       </a>
     </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       VERSÍCULO
-  ═══════════════════════════════════════════════════ -->
-  <section class="py-20 bg-teal-pale">
-    <div class="max-w-4xl mx-auto px-5 reveal">
-      <div class="text-center relative">
-        <div class="quote-mark absolute -top-6 left-0 leading-none select-none hidden md:block">"</div>
-        <p class="text-teal font-semibold text-sm tracking-widest uppercase mb-6">Josué 1:9</p>
-        <blockquote class="font-display font-bold text-2xl md:text-4xl text-navy leading-relaxed max-w-3xl mx-auto">
-          "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios estará contigo en dondequiera que vayas."
-        </blockquote>
-        <div class="w-16 h-1 bg-teal rounded-full mx-auto mt-8"></div>
-        <p class="text-navy/45 mt-4 font-semibold text-sm tracking-widest">— Josué 1:9 RVR1960</p>
-      </div>
+  </div>
+</section>
+ 
+<!-- ============ REFLEXIÓN ============ -->
+<section class="py-24">
+  <div class="max-w-3xl mx-auto px-5 text-center reveal relative">
+    <span class="quote-mark">"</span>
+    <p class="eyebrow text-teal-500 mb-6">Reflexión</p>
+    <blockquote class="font-display font-medium text-2xl md:text-3xl text-ink-700 leading-relaxed">
+      Si ayudo a una sola persona a tener esperanza, no habré vivido en vano.
+    </blockquote>
+    <p class="text-ink-400 mt-5 text-sm font-semibold uppercase tracking-widest">— Martin Luther King</p>
+  </div>
+</section>
+ 
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink-700 py-12">
+  <div class="max-w-6xl mx-auto px-5 flex flex-col items-center gap-7">
+    <div class="flex items-center gap-4">
+      <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full bg-white/8 hover:bg-rose-400 flex items-center justify-center transition-colors duration-300">
+        <svg class="w-4.5 h-4.5 text-white" style="width:18px;height:18px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="#" aria-label="TikTok" class="w-10 h-10 rounded-full bg-white/8 hover:bg-rose-400 flex items-center justify-center transition-colors duration-300">
+        <svg style="width:16px;height:16px;" fill="currentColor" viewBox="0 0 24 24" class="text-white"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      </a>
+      <a href="#" aria-label="YouTube" class="w-10 h-10 rounded-full bg-white/8 hover:bg-rose-400 flex items-center justify-center transition-colors duration-300">
+        <svg style="width:18px;height:18px;" fill="currentColor" viewBox="0 0 24 24" class="text-white"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+      </a>
+      <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full bg-white/8 hover:bg-rose-400 flex items-center justify-center transition-colors duration-300">
+        <svg style="width:16px;height:16px;" fill="currentColor" viewBox="0 0 24 24" class="text-white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white/8 hover:bg-rose-400 flex items-center justify-center transition-colors duration-300">
+        <svg style="width:16px;height:16px;" fill="currentColor" viewBox="0 0 24 24" class="text-white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-10 h-10 rounded-full bg-white/8 hover:bg-teal-400 flex items-center justify-center transition-colors duration-300">
+        <svg style="width:17px;height:17px;" fill="currentColor" viewBox="0 0 24 24" class="text-white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      </a>
     </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════════════ -->
-  <footer class="bg-navy py-10">
-    <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="text-white/80 text-sm text-center md:text-left">
-        © 2025 <span class="font-semibold text-white">Pr. Elvis Mendoza</span> · Todos los derechos reservados
-      </div>
-      <div class="flex items-center gap-1 text-white/40 text-xs">
-        <span>Construido con</span>
-        <svg class="w-3.5 h-3.5 text-teal mx-0.5" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
-        </svg>
-        <span>fe y propósito</span>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.10 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    document.querySelectorAll('.service-card, .social-card').forEach((card, i) => {
-      card.classList.add('reveal');
-      card.style.transitionDelay = `${i * 55}ms`;
-      observer.observe(card);
-    });
-
-    // Reduced motion
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('.float, .btn-shimmer').forEach(el => el.style.animation = 'none');
-    }
-  </script>
+    <p class="text-white/40 text-xs text-center">© 2025 Thalizza García · Todos los derechos reservados</p>
+  </div>
+</footer>
+ 
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+ 
 </body>
 </html>
