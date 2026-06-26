@@ -28,8 +28,12 @@
             body: ['"Plus Jakarta Sans"', 'sans-serif'],
           },
           boxShadow: {
-            soft: '0 30px 60px -25px rgba(168,82,106,0.25)',
-            tealsoft: '0 30px 60px -25px rgba(19,111,102,0.3)',
+            soft: '0 20px 40px -15px rgba(168,82,106,0.15)',
+            softHover: '0 30px 50px -10px rgba(168,82,106,0.25)',
+            tealsoft: '0 20px 40px -15px rgba(27,142,130,0.2)',
+            tealsoftHover: '0 30px 50px -10px rgba(27,142,130,0.3)',
+            premium: '0 10px 30px -5px rgba(42,37,48,0.08)',
+            premiumHover: '0 20px 40px -5px rgba(42,37,48,0.15)',
           },
         }
       }
@@ -63,19 +67,11 @@
       font-weight: 700;
     }
 
-    /* ── Botanical SVG ── */
-    .twig {
-      stroke: currentColor;
-      stroke-width: 1.4;
-      fill: none;
-      stroke-linecap: round;
-    }
-
     /* ── Scroll-reveal ── */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity .7s ease, transform .7s ease;
+      transition: opacity .8s cubic-bezier(0.16, 1, 0.3, 1), transform .8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .reveal.visible {
@@ -85,11 +81,11 @@
 
     /* ── Card hover ── */
     .card-hover {
-      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+      transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .card-hover:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
     }
 
     /* ── Quote decoration ── */
@@ -117,7 +113,7 @@
       background: linear-gradient(90deg, #C56C84, #2BA89A);
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform .25s ease;
+      transition: transform .3s ease;
     }
 
     .nav-link:hover::after {
@@ -126,18 +122,18 @@
 
     /* ── Grain texture ── */
     .grain {
-      background-image: radial-gradient(circle at 1px 1px, rgba(58, 42, 48, .06) 1px, transparent 0);
+      background-image: radial-gradient(circle at 1px 1px, rgba(58, 42, 48, .05) 1px, transparent 0);
       background-size: 14px 14px;
     }
 
     /* ── Social card hover ── */
     .social-card {
-      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      transition: all .3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .social-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(168, 82, 106, .18);
+      box-shadow: 0 16px 24px -8px rgba(168, 82, 106, .14);
     }
 
     /* ── Hero image desktop ── */
@@ -147,10 +143,28 @@
       object-fit: contain;
       object-position: bottom center;
       display: block;
-      /* sin border-radius ni sombra → sin "cuadro" */
     }
 
-    /* ── Mobile hamburger (simple show/hide) ── */
+    /* ── Brain Animations & Styles ── */
+    @keyframes float-gentle {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-6px) scale(1.02); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { filter: drop-shadow(0 0 15px rgba(244,224,226,0.6)) drop-shadow(0 0 2px rgba(168,82,106,0.2)); }
+      50% { filter: drop-shadow(0 0 25px rgba(159,222,212,0.7)) drop-shadow(0 0 8px rgba(27,142,130,0.4)); }
+    }
+    .animate-brain {
+      animation: float-gentle 6s ease-in-out infinite, pulse-glow 6s ease-in-out infinite;
+    }
+    .brain-path {
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke-width 0.3s ease;
+    }
+
     #mobile-menu {
       display: none;
     }
@@ -161,36 +175,36 @@
   </style>
 </head>
 
-<body>
+<body class="font-body">
 
   <!-- ════════════════════════════════════════
      NAV
 ════════════════════════════════════════ -->
-  <header class="fixed top-0 inset-x-0 z-50 bg-cream/90 backdrop-blur-md border-b border-rose-200/60">
-    <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
+  <header class="fixed top-0 inset-x-0 z-50 bg-cream/80 backdrop-blur-lg border-b border-rose-200/40 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
 
       <!-- Logo -->
-      <a href="#" class="font-display font-semibold text-ink-700 text-lg">
+      <a href="#" class="font-display font-semibold text-ink-700 text-xl tracking-tight hover:opacity-90 transition-opacity">
         Thalizza <span class="text-teal-500">García</span>
       </a>
 
       <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-ink-600">
-        <a href="#sobre-mi" class="nav-link">Sobre mí</a>
-        <a href="#servicios" class="nav-link">Servicios</a>
-        <a href="#publicaciones" class="nav-link">Publicaciones</a>
-        <a href="#recursos" class="nav-link">Recursos</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ink-600">
+        <a href="#sobre-mi" class="nav-link transition-colors hover:text-ink-700">Sobre mí</a>
+        <a href="#servicios" class="nav-link transition-colors hover:text-ink-700">Servicios</a>
+        <a href="#publicaciones" class="nav-link transition-colors hover:text-ink-700">Publicaciones</a>
+        <a href="#recursos" class="nav-link transition-colors hover:text-ink-700">Recursos</a>
       </nav>
 
       <!-- Desktop CTA -->
       <a href="https://wa.me/" target="_blank" rel="noopener"
-        class="hidden md:inline-flex items-center gap-2 bg-ink-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-teal-500 transition-colors duration-300">
+        class="hidden md:inline-flex items-center gap-2 bg-ink-700 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-premium hover:bg-teal-600 hover:shadow-tealsoft hover:-translate-y-0.5 transition-all duration-300">
         Agendar cita
       </a>
 
       <!-- Mobile hamburger -->
       <button id="hamburger-btn" aria-label="Abrir menú"
-        class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-rose-50 transition-colors">
+        class="md:hidden flex flex-col gap-1.5 p-2 rounded-xl hover:bg-rose-100/50 transition-colors">
         <span class="block w-5 h-0.5 bg-ink-700"></span>
         <span class="block w-5 h-0.5 bg-ink-700"></span>
         <span class="block w-5 h-0.5 bg-ink-700"></span>
@@ -198,14 +212,13 @@
     </div>
 
     <!-- Mobile dropdown -->
-    <div id="mobile-menu" class="md:hidden flex-col gap-1 px-5 pb-4 bg-cream/95 border-t border-rose-100">
-      <a href="#sobre-mi" class="block py-2.5 text-sm font-medium text-ink-600 hover:text-teal-500">Sobre mí</a>
-      <a href="#servicios" class="block py-2.5 text-sm font-medium text-ink-600 hover:text-teal-500">Servicios</a>
-      <a href="#publicaciones"
-        class="block py-2.5 text-sm font-medium text-ink-600 hover:text-teal-500">Publicaciones</a>
-      <a href="#recursos" class="block py-2.5 text-sm font-medium text-ink-600 hover:text-teal-500">Recursos</a>
+    <div id="mobile-menu" class="md:hidden flex-col gap-1 px-5 pb-5 bg-cream/95 backdrop-blur-md border-t border-rose-100 animate-fadeIn">
+      <a href="#sobre-mi" class="block py-3 text-sm font-medium text-ink-600 hover:text-teal-500 border-b border-rose-100/40">Sobre mí</a>
+      <a href="#servicios" class="block py-3 text-sm font-medium text-ink-600 hover:text-teal-500 border-b border-rose-100/40">Servicios</a>
+      <a href="#publicaciones" class="block py-3 text-sm font-medium text-ink-600 hover:text-teal-500 border-b border-rose-100/40">Publicaciones</a>
+      <a href="#recursos" class="block py-3 text-sm font-medium text-ink-600 hover:text-teal-500 border-b border-rose-100/40">Recursos</a>
       <a href="https://wa.me/" target="_blank" rel="noopener"
-        class="mt-2 inline-flex items-center gap-2 bg-teal-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
+        class="mt-4 w-full justify-center inline-flex items-center gap-2 bg-teal-500 text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-tealsoft">
         Agendar cita
       </a>
     </div>
@@ -215,77 +228,65 @@
   <!-- ════════════════════════════════════════
      HERO
 ════════════════════════════════════════ -->
-  <section class="relative pt-28 pb-16 grain overflow-hidden">
+  <section class="relative pt-32 pb-20 grain overflow-hidden">
 
     <!-- Blobs de fondo -->
-    <div
-      class="pointer-events-none absolute -top-10 -right-24 w-[420px] h-[420px] bg-rose-100 rounded-full blur-3xl opacity-70">
-    </div>
-    <div
-      class="pointer-events-none absolute bottom-0 -left-24 w-[320px] h-[320px] bg-teal-100 rounded-full blur-3xl opacity-60">
-    </div>
+    <div class="pointer-events-none absolute -top-10 -right-24 w-[420px] h-[420px] bg-rose-100 rounded-full blur-3xl opacity-70"></div>
+    <div class="pointer-events-none absolute bottom-0 -left-24 w-[320px] h-[320px] bg-teal-100 rounded-full blur-3xl opacity-60"></div>
 
     <div class="relative z-10 max-w-6xl mx-auto px-5">
       <div class="flex flex-col md:grid md:grid-cols-[1fr_1fr] gap-10 md:gap-16 items-center">
 
-        <!-- ── Texto (siempre primero en DOM → mobile top, desktop left) ── -->
+        <!-- Text -->
         <div class="reveal text-center md:text-left order-2 md:order-1">
-          <p class="eyebrow text-teal-500 mb-4">Psicóloga</p>
+          <p class="eyebrow text-teal-600 font-bold mb-4">Psicóloga</p>
 
-          <h1 class="font-display font-semibold text-4xl md:text-5xl lg:text-6xl text-ink-700 leading-[1.07] mb-5">
+          <h1 class="font-display font-semibold text-4xl md:text-5xl lg:text-6xl text-ink-700 leading-[1.1] mb-6">
             Thalizza<br />
             <em class="not-italic italic text-rose-500">García</em>
           </h1>
 
-          <p class="text-ink-500 text-base md:text-lg leading-relaxed max-w-md mx-auto md:mx-0 mb-5">
+          <p class="text-ink-500 text-base md:text-lg lg:text-[17px] leading-relaxed max-w-md mx-auto md:mx-0 mb-6">
             Psicóloga cristiana, especialista en terapia familiar e investigación en salud mental.
           </p>
 
           <!-- Tags -->
           <div class="flex flex-wrap justify-center md:justify-start gap-2 text-[11px] font-semibold text-ink-600 mb-8">
-            <span class="bg-white border border-rose-200 px-3.5 py-1.5 rounded-full">Psicóloga cristiana</span>
-            <span class="bg-white border border-rose-200 px-3.5 py-1.5 rounded-full">Mg. en Terapia Familiar</span>
-            <span class="bg-white border border-rose-200 px-3.5 py-1.5 rounded-full">Investigación en Salud
-              Mental</span>
-            <span class="bg-white border border-rose-200 px-3.5 py-1.5 rounded-full">Gestora de Riesgos
-              Psicosociales</span>
+            <span class="bg-white border border-rose-200/80 px-4 py-2 rounded-full shadow-sm hover:border-rose-300 transition-colors">Psicóloga cristiana</span>
+            <span class="bg-white border border-rose-200/80 px-4 py-2 rounded-full shadow-sm hover:border-rose-300 transition-colors">Mg. en Terapia Familiar</span>
+            <span class="bg-white border border-rose-200/80 px-4 py-2 rounded-full shadow-sm hover:border-rose-300 transition-colors">Investigación en Salud Mental</span>
+            <span class="bg-white border border-rose-200/80 px-4 py-2 rounded-full shadow-sm hover:border-rose-300 transition-colors">Gestora de Riesgos Psicosociales</span>
           </div>
 
           <!-- CTAs -->
-          <div class="flex flex-wrap justify-center md:justify-start gap-3">
+          <div class="flex flex-wrap justify-center md:justify-start gap-4">
             <a href="https://wa.me/" target="_blank" rel="noopener"
-              class="inline-flex items-center gap-2 bg-teal-500 text-white font-bold px-7 py-3.5 rounded-full shadow-tealsoft hover:bg-teal-600 transition-colors duration-300 text-sm">
-              <!-- WhatsApp icon -->
+              class="inline-flex items-center gap-2.5 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-bold px-8 py-3.5 rounded-full shadow-tealsoft hover:shadow-tealsoftHover hover:-translate-y-0.5 transition-all duration-300 text-sm">
               <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
               </svg>
               Escríbeme ahora
             </a>
             <a href="https://whatsapp.com/channel/" target="_blank" rel="noopener"
-              class="inline-flex items-center gap-2 border-2 border-ink-700 text-ink-700 font-bold px-7 py-3.5 rounded-full hover:bg-ink-700 hover:text-white transition-colors duration-300 text-sm">
+              class="inline-flex items-center gap-2 border-2 border-ink-700 text-ink-700 font-bold px-8 py-3.5 rounded-full hover:bg-ink-700 hover:text-white hover:-translate-y-0.5 transition-all duration-300 text-sm shadow-sm">
               Canal de WhatsApp
             </a>
           </div>
         </div>
 
-        <!-- ── Imagen ── -->
+        <!-- Image -->
         <div class="reveal order-1 md:order-2 flex justify-center">
-
-          <!-- MÓVIL: círculo con marco degradado -->
-          <div
-            class="md:hidden w-52 h-52 rounded-full p-1.5 bg-gradient-to-tr from-rose-300 to-teal-300 shadow-soft flex-shrink-0">
+          <!-- Mobile view -->
+          <div class="md:hidden w-56 h-56 rounded-full p-1.5 bg-gradient-to-tr from-rose-300 to-teal-300 shadow-soft flex-shrink-0">
             <div class="w-full h-full rounded-full overflow-hidden bg-cream">
               <img src="tali_1.jpg" alt="Thalizza García" class="w-full h-full object-cover object-top"
                 onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-gradient-to-br from-rose-300 to-teal-200\'><span class=\'font-display font-semibold text-4xl text-white\'>TG</span></div>'" />
             </div>
           </div>
-
-          <!-- DESKTOP: imagen suelta, sin cuadro ni marco -->
-          <img src="taliza.png" alt="Thalizza García" class="hidden md:block hero-img-desktop"
-            onerror="this.style.display='none'" />
-
+          <!-- Desktop view -->
+          <img src="taliza.png" alt="Thalizza García" class="hidden md:block hero-img-desktop" onerror="this.style.display='none'" />
         </div>
+
       </div>
     </div>
   </section>
@@ -297,25 +298,21 @@
   <section class="py-16 bg-white border-t border-rose-100">
     <div class="max-w-5xl mx-auto px-5">
 
-      <div class="text-center mb-10 reveal">
-        <p class="eyebrow text-teal-500 mb-3">Sígueme</p>
-        <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink-700 mb-3">Conecta conmigo</h2>
-        <p class="text-ink-500 text-base max-w-md mx-auto">Elige tu plataforma favorita para recibir contenido, recursos
-          y novedades.</p>
+      <div class="text-center mb-12 reveal">
+        <p class="eyebrow text-teal-600 font-bold mb-3">Sígueme</p>
+        <h2 class="font-display font-semibold text-4xl text-ink-700 mb-4">Conecta conmigo</h2>
+        <p class="text-ink-500 text-base md:text-lg lg:text-[17px] leading-relaxed max-w-md mx-auto">Elige tu plataforma favorita para recibir contenido, recursos y novedades.</p>
       </div>
 
-      <!-- Grid de redes sociales -->
-      <div class="reveal flex flex-wrap justify-center gap-3">
+      <!-- Social Grid -->
+      <div class="reveal flex flex-wrap justify-center gap-4">
 
         <!-- WhatsApp -->
-        <a href="https:" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-card flex flex-col items-center gap-0 md:gap-2
-                bg-teal-50/50 border border-teal-100 rounded-xl
-                w-14 h-14 md:w-28 md:h-auto md:py-4 md:px-4
-                justify-center">
-          <div class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0">
-            <svg viewBox="0 0 24 24" class="text-teal-600 fill-current" width="18" height="18">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        <a href="https:" target="_blank" rel="noopener" aria-label="WhatsApp" 
+           class="social-card flex flex-col items-center gap-0 md:gap-2 bg-teal-50/40 border border-teal-100/70 rounded-2xl w-16 h-16 md:w-32 md:h-auto md:py-5 md:px-4 justify-center hover:border-teal-300 hover:bg-teal-50">
+          <div class="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center flex-shrink-0 transition-transform social-icon">
+            <svg viewBox="0 0 24 24" class="text-teal-600 fill-current" width="20" height="20">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
             </svg>
           </div>
           <p class="hidden md:block font-bold text-ink-700 text-xs mt-1">WhatsApp</p>
@@ -323,56 +320,43 @@
 
         <!-- Instagram -->
         <a href="https://www.instagram.com/psicologathalizza" target="_blank" rel="noopener" aria-label="Instagram"
-          class="social-card flex flex-col items-center gap-0 md:gap-2
-                bg-rose-50/50 border border-rose-100 rounded-xl
-                w-14 h-14 md:w-28 md:h-auto md:py-4 md:px-4
-                justify-center">
-          <div class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0">
-            <svg viewBox="0 0 24 24" class="text-rose-600 fill-current" width="16" height="16">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+           class="social-card flex flex-col items-center gap-0 md:gap-2 bg-rose-50/40 border border-rose-100/70 rounded-2xl w-16 h-16 md:w-32 md:h-auto md:py-5 md:px-4 justify-center hover:border-rose-300 hover:bg-rose-50">
+          <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center flex-shrink-0 transition-transform social-icon">
+            <svg viewBox="0 0 24 24" class="text-rose-600 fill-current" width="18" height="18">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
             </svg>
           </div>
           <p class="hidden md:block font-bold text-ink-700 text-xs mt-1">Instagram</p>
         </a>
 
         <!-- TikTok -->
-        <a href="https://www.tiktok.com/@psicologathalizza" target="_blank" rel="noopener" aria-label="TikTok" class="social-card flex flex-col items-center gap-0 md:gap-2
-                bg-teal-50/50 border border-teal-100 rounded-xl
-                w-14 h-14 md:w-28 md:h-auto md:py-4 md:px-4
-                justify-center">
-          <div class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0">
-            <svg viewBox="0 0 24 24" class="text-teal-600 fill-current" width="15" height="15">
-              <path
-                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+        <a href="https://www.tiktok.com/@psicologathalizza" target="_blank" rel="noopener" aria-label="TikTok" 
+           class="social-card flex flex-col items-center gap-0 md:gap-2 bg-teal-50/40 border border-teal-100/70 rounded-2xl w-16 h-16 md:w-32 md:h-auto md:py-5 md:px-4 justify-center hover:border-teal-300 hover:bg-teal-50">
+          <div class="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center flex-shrink-0 transition-transform social-icon">
+            <svg viewBox="0 0 24 24" class="text-teal-600 fill-current" width="16" height="16">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
             </svg>
           </div>
           <p class="hidden md:block font-bold text-ink-700 text-xs mt-1">TikTok</p>
         </a>
 
         <!-- Facebook -->
-        <a href="https://www.facebook.com/PsicologaThalizza" target="_blank" rel="noopener" aria-label="Facebook" class="social-card flex flex-col items-center gap-0 md:gap-2
-                bg-rose-50/50 border border-rose-100 rounded-xl
-                w-14 h-14 md:w-28 md:h-auto md:py-4 md:px-4
-                justify-center">
-          <div class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0">
-            <svg viewBox="0 0 24 24" class="text-rose-600 fill-current" width="15" height="15">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+        <a href="https://www.facebook.com/PsicologaThalizza" target="_blank" rel="noopener" aria-label="Facebook" 
+           class="social-card flex flex-col items-center gap-0 md:gap-2 bg-rose-50/40 border border-rose-100/70 rounded-2xl w-16 h-16 md:w-32 md:h-auto md:py-5 md:px-4 justify-center hover:border-rose-300 hover:bg-rose-50">
+          <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center flex-shrink-0 transition-transform social-icon">
+            <svg viewBox="0 0 24 24" class="text-rose-600 fill-current" width="16" height="16">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
             </svg>
           </div>
           <p class="hidden md:block font-bold text-ink-700 text-xs mt-1">Facebook</p>
         </a>
 
         <!-- YouTube -->
-        <a href="https://www.youtube.com/@PsicologaThalizza" target="_blank" rel="noopener" aria-label="YouTube" class="social-card flex flex-col items-center gap-0 md:gap-2
-                bg-teal-50/50 border border-teal-100 rounded-xl
-                w-14 h-14 md:w-28 md:h-auto md:py-4 md:px-4
-                justify-center">
-          <div class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0">
-            <svg viewBox="0 0 24 24" class="text-teal-600 fill-current" width="17" height="17">
-              <path
-                d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
+        <a href="https://www.youtube.com/@PsicologaThalizza" target="_blank" rel="noopener" aria-label="YouTube" 
+           class="social-card flex flex-col items-center gap-0 md:gap-2 bg-teal-50/40 border border-teal-100/70 rounded-2xl w-16 h-16 md:w-32 md:h-auto md:py-5 md:px-4 justify-center hover:border-teal-300 hover:bg-teal-50">
+          <div class="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center flex-shrink-0 transition-transform social-icon">
+            <svg viewBox="0 0 24 24" class="text-teal-600 fill-current" width="18" height="18">
+              <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
             </svg>
           </div>
           <p class="hidden md:block font-bold text-ink-700 text-xs mt-1">YouTube</p>
@@ -380,14 +364,10 @@
 
         <!-- LinkedIn -->
         <a href="https://www.linkedin.com/in/psicologathalizza" target="_blank" rel="noopener" aria-label="LinkedIn"
-          class="social-card flex flex-col items-center gap-0 md:gap-2
-                bg-rose-50/50 border border-rose-100 rounded-xl
-                w-14 h-14 md:w-28 md:h-auto md:py-4 md:px-4
-                justify-center">
-          <div class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0">
-            <svg viewBox="0 0 24 24" class="text-rose-600 fill-current" width="15" height="15">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+           class="social-card flex flex-col items-center gap-0 md:gap-2 bg-rose-50/40 border border-rose-100/70 rounded-2xl w-16 h-16 md:w-32 md:h-auto md:py-5 md:px-4 justify-center hover:border-rose-300 hover:bg-rose-50">
+          <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center flex-shrink-0 transition-transform social-icon">
+            <svg viewBox="0 0 24 24" class="text-rose-600 fill-current" width="16" height="16">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
           </div>
           <p class="hidden md:block font-bold text-ink-700 text-xs mt-1">LinkedIn</p>
@@ -401,69 +381,69 @@
   <!-- ════════════════════════════════════════
      SOBRE MÍ
 ════════════════════════════════════════ -->
-  <section id="sobre-mi" class="py-24">
+  <section id="sobre-mi" class="py-24 bg-gradient-to-b from-white to-cream">
     <div class="max-w-5xl mx-auto px-5">
-      <div class="grid md:grid-cols-[0.85fr_1.15fr] gap-12 items-center reveal">
+      <div class="grid md:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center reveal">
 
-        <div class="flex flex-col items-center gap-6">
+        <!-- Contenedor del Cerebro Rediseñado -->
+        <div class="flex flex-col items-center justify-center p-8 bg-white border border-rose-100/70 rounded-3xl shadow-soft relative overflow-hidden group">
+          <!-- Decoración abstracta de fondo dentro de la tarjeta -->
+          <div class="absolute -top-12 -left-12 w-32 h-32 bg-teal-50 rounded-full blur-2xl opacity-60 group-hover:bg-rose-50 transition-colors duration-500"></div>
+          <div class="absolute -bottom-12 -right-12 w-32 h-32 bg-rose-50 rounded-full blur-2xl opacity-60 group-hover:bg-teal-50 transition-colors duration-500"></div>
+          
+          <!-- SVG Cerebro con Animación y Degradados -->
+          <svg viewBox="0 0 180 180" class="w-44 h-44 animate-brain relative z-10" aria-hidden="true">
+            <defs>
+              <linearGradient id="brainGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#E5989B" />
+                <stop offset="100%" stop-color="#C56C84" />
+              </linearGradient>
+              <linearGradient id="brainGradRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#5FC6B7" />
+                <stop offset="100%" stop-color="#1B8E82" />
+              </linearGradient>
+            </defs>
 
-          <!-- Cerebro -->
-          <svg viewBox="0 0 180 180" class="w-40 text-rose-400" aria-hidden="true">
+            <!-- Hemisferio Izquierdo (Tonos Cálidos/Creativos) -->
+            <path class="brain-path" stroke="url(#brainGradLeft)" d="M90 30 C60 10,20 30,25 70 C10 80,10 110,30 120 C25 150,50 165,75 155 C82 162,88 158,90 145" />
+            <!-- Surcos Izquierdos -->
+            <path class="brain-path" stroke="url(#brainGradLeft)" opacity="0.85" d="M55 55 C40 70,45 90,65 95" />
+            <path class="brain-path" stroke="url(#brainGradLeft)" opacity="0.85" d="M60 105 C45 120,55 135,75 140" />
+            <path class="brain-path" stroke="url(#brainGradLeft)" opacity="0.6" d="M40 85 C30 92,35 105,50 100" />
 
-            <!-- Contorno -->
-            <path class="brain" d="M90 30
-         C60 10,20 30,25 70
-         C10 80,10 110,30 120
-         C25 150,50 165,75 155
-         C85 170,95 170,90 145
-         C95 170,105 170,115 155
-         C140 165,165 150,160 120
-         C180 110,180 80,165 70
-         C170 30,130 10,90 30 Z" />
+            <!-- Hemisferio Derecho (Tonos Fríos/Científicos) -->
+            <path class="brain-path" stroke="url(#brainGradRight)" d="M90 30 C120 10,160 30,155 70 C170 80,170 110,150 120 C155 150,130 165,105 155 C98 162,92 158,90 145" />
+            <!-- Surcos Derechos -->
+            <path class="brain-path" stroke="url(#brainGradRight)" opacity="0.85" d="M125 55 C140 70,135 90,115 95" />
+            <path class="brain-path" stroke="url(#brainGradRight)" opacity="0.85" d="M120 105 C135 120,125 135,105 140" />
+            <path class="brain-path" stroke="url(#brainGradRight)" opacity="0.6" d="M140 85 C150 92,145 105,130 100" />
 
-            <!-- División central -->
-            <path class="brain" d="M90 35 C88 70,88 110,90 145" />
-
-            <!-- Surcos -->
-            <path class="brain" d="M55 55 C40 70,45 90,65 95" />
-            <path class="brain" d="M60 105 C45 120,55 135,75 140" />
-
-            <path class="brain" d="M125 55 C140 70,135 90,115 95" />
-            <path class="brain" d="M120 105 C135 120,125 135,105 140" />
+            <!-- Línea Central Armoniosa -->
+            <path class="brain-path" stroke="#3D3640" stroke-width="2" opacity="0.3" d="M90 32 C89 70,89 110,90 144" />
           </svg>
 
-          <div class="text-center text-rose-400">
-            <p class="text-2xl font-light">Psicóloga</p>
-            <p class="text-lg uppercase tracking-[0.3em]">
-              Investigación
-            </p>
-            <p class="text-sm italic opacity-80">
-              Científica
-            </p>
+          <div class="text-center mt-6 relative z-10">
+            <p class="text-xl font-medium font-display text-ink-700 tracking-wide">Psicología</p>
+            <p class="text-xs uppercase tracking-[0.25em] text-teal-600 font-bold mt-1">Investigación Científica</p>
           </div>
         </div>
 
-        <style>
-          .brain {
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 3;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-          }
-        </style>
-
+        <!-- Text Column -->
         <div>
-          <p class="eyebrow text-rose-500 mb-3">Mi historia</p>
-          <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink-700 mb-6">Sobre mí</h2>
-          <p class="text-ink-500 text-base md:text-lg leading-relaxed mb-6">
-            Psicóloga licenciada y colegiada <strong class="font-semibold text-ink-700">(C.Ps.P. 61015)</strong>,
-            apasionada por la salud mental y el bienestar emocional. Acompaño a las personas en su proceso de
-            crecimiento y transformación mediante una atención profesional basada en la empatía, la ética y la evidencia
-            científica.
+          <p class="eyebrow text-rose-600 font-bold mb-3">Mi historia</p>
+          <h2 class="font-display font-semibold text-4xl text-ink-700 mb-6">Sobre mí</h2>
+          
+          <!-- Descripción con Tipografía Mejorada -->
+          <p class="text-ink-500 text-[16px] md:text-[17px] leading-[1.75] font-normal mb-6">
+            Psicóloga licenciada y colegiada 
+            <button class="inline-flex items-center mx-1 px-3 py-1 bg-rose-50 border border-rose-200/60 rounded-lg text-rose-600 text-sm font-semibold tracking-wide shadow-sm hover:bg-rose-100 hover:border-rose-300 active:scale-95 transition-all duration-200 cursor-pointer">
+              C.Ps.P. 61015
+            </button>, 
+            apasionada por la salud mental y el bienestar emocional. Acompaño a las personas en su proceso de crecimiento y transformación mediante una atención profesional basada en la empatía, la ética y la evidencia científica.
           </p>
-          <blockquote class="border-l-4 border-teal-400 pl-5 m-0">
-            <p class="font-display italic text-xl text-ink-700">
+          
+          <blockquote class="border-l-4 border-teal-500 pl-5 my-6">
+            <p class="font-display italic text-xl text-ink-700 leading-relaxed">
               "Investigar para comprender, acompañar para transformar vidas."
             </p>
           </blockquote>
@@ -473,6 +453,7 @@
     </div>
   </section>
 
+
   <!-- ════════════════════════════════════════
      SERVICIOS
 ════════════════════════════════════════ -->
@@ -480,229 +461,154 @@
     style="background: linear-gradient(135deg, #EAF8F6 0%, #ffffff 50%, #FBF1F1 100%);">
 
     <!-- Blobs decorativos de fondo -->
-    <div class="pointer-events-none absolute top-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-40"
-      style="background:#9FDED4;"></div>
-    <div class="pointer-events-none absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-30"
-      style="background:#DDA3AE;"></div>
-    <div
-      class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-3xl opacity-20"
-      style="background:#5FC6B7;"></div>
+    <div class="pointer-events-none absolute top-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-40" style="background:#9FDED4;"></div>
+    <div class="pointer-events-none absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-30" style="background:#DDA3AE;"></div>
 
     <div class="max-w-6xl mx-auto px-5 relative z-10">
 
-      <div class="text-center mb-14 reveal">
-        <p class="eyebrow text-teal-500 mb-3">¿En qué puedo ayudarte?</p>
-        <h2 class="font-display font-semibold text-4xl md:text-5xl text-ink-700">Servicios psicológicos</h2>
-        <div class="mt-4 mx-auto w-16 h-1 rounded-full" style="background:linear-gradient(90deg,#1B8E82,#C56C84);">
-        </div>
+      <div class="text-center mb-16 reveal">
+        <p class="eyebrow text-teal-600 font-bold mb-3">¿En qué puedo ayudarte?</p>
+        <h2 class="font-display font-semibold text-4xl text-ink-700">Servicios psicológicos</h2>
+        <div class="mt-4 mx-auto w-16 h-1 rounded-full" style="background:linear-gradient(90deg,#1B8E82,#C56C84);"></div>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
-        <!-- 1 — TEAL sólido -->
-        <article
-          class="reveal card-hover rounded-2xl p-7 border border-teal-200 hover:border-teal-400 hover:shadow-tealsoft"
-          style="background:linear-gradient(145deg,#ffffff,#EAF8F6);">
-
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-            style="background:linear-gradient(135deg,#2BA89A,#1B8E82);" aria-hidden="true">
-
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9.663 17h4.673M12 3a6 6 0 016 6c0 1.887-.454 3.665-1.257 5.234-.696 1.357-.81 2.948.257 4.016A2 2 0 0115.586 21H8.414a2 2 0 01-1.414-3.75c1.067-1.068.953-2.66.257-4.016C6.454 12.665 6 10.887 6 9a6 6 0 016-6z" />
-            </svg>
+        <!-- Card 1 -->
+        <article class="reveal card-hover bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-teal-100 shadow-premium hover:border-teal-300 hover:shadow-tealsoftHover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-sm" style="background:linear-gradient(135deg,#2BA89A,#1B8E82);">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3a6 6 0 016 6c0 1.887-.454 3.665-1.257 5.234-.696 1.357-.81 2.948.257 4.016A2 2 0 0115.586 21H8.414a2 2 0 01-1.414-3.75c1.067-1.068.953-2.66.257-4.016C6.454 12.665 6 10.887 6 9a6 6 0 016-6z" />
+              </svg>
+            </div>
+            <span class="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md mb-4 text-white" style="background:#1B8E82;">Terapia individual</span>
+            <h3 class="font-display font-semibold text-xl text-ink-700 mb-3">Salud mental y bienestar</h3>
+            
+            <!-- Descripción con Tipografía Mejorada -->
+            <p class="text-ink-500 text-[15px] md:text-[16px] leading-[1.7] font-normal mb-6">
+              Acompañamiento personalizado y enfocado en mejorar de forma duradera tu bienestar emocional.
+            </p>
           </div>
 
-          <span
-            class="inline-block text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3 text-white"
-            style="background:#1B8E82;">
-            Terapia individual
-          </span>
-
-          <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">
-            Salud mental y bienestar
-          </h3>
-
-          <p class="text-ink-500 text-sm leading-relaxed mb-5">
-            Acompañamiento para mejorar tu bienestar emocional.
-          </p>
-
-          <!-- Botón WhatsApp -->
-          <a href="https://wa.me/51999999999?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20la%20terapia."
-            target="_blank"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-white font-medium transition hover:scale-105"
-            style="background:linear-gradient(135deg,#99d9d2,#38afa9);">
-
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12.04 2C6.52 2 2.04 6.48 2.04 12c0 1.76.46 3.48 1.34 5L2 22l5.15-1.35A9.94 9.94 0 0012.04 22C17.56 22 22.04 17.52 22.04 12S17.56 2 12.04 2zm0 18.17c-1.53 0-3.03-.41-4.34-1.18l-.31-.18-3.06.8.82-2.98-.2-.31A8.1 8.1 0 013.87 12c0-4.51 3.67-8.17 8.17-8.17S20.21 7.49 20.21 12s-3.67 8.17-8.17 8.17zm4.48-6.12c-.25-.12-1.46-.72-1.69-.8-.23-.08-.4-.12-.57.12-.17.25-.65.8-.8.96-.15.17-.3.19-.56.06-.25-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.3.37-.45.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.68 4.25 3.76.59.25 1.05.4 1.41.51.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z" />
-            </svg>
-
-            Reservar cita
-          </a>
-
-        </article>
-
-        <!-- 2 — ROSE sólido -->
-        <article
-          class="reveal card-hover rounded-2xl p-7 border border-rose-200 hover:border-rose-400 hover:shadow-soft"
-          style="background:linear-gradient(145deg,#ffffff,#FBF1F1);">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-            style="background:linear-gradient(135deg,#C56C84,#A8526A);" aria-hidden="true">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M17 20h5v-1a4 4 0 00-4-4M9 20H4v-1a4 4 0 014-4m6-7a3 3 0 11-6 0 3 3 0 016 0zm6 3a3 3 0 11-6 0 3 3 0 016 0zM6 9a3 3 0 116 0 3 3 0 01-6 0z" />
-            </svg>
-          </div>
-          <span
-            class="inline-block text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3 text-white"
-            style="background:#C56C84;">Fortalece vínculos</span>
-          <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">Terapia familiar</h3>
-          <p class="text-ink-500 text-sm leading-relaxed">Mejora la comunicación y fortalece las relaciones familiares.
-          </p>
-
-          <!-- Botón WhatsApp -->
-          <a href="https://wa.me/51999999999?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20la%20terapia."
-            target="_blank"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-white font-medium transition hover:scale-105"
-            style="background:linear-gradient(135deg,#dfc6ce,#d1718c);">
-
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12.04 2C6.52 2 2.04 6.48 2.04 12c0 1.76.46 3.48 1.34 5L2 22l5.15-1.35A9.94 9.94 0 0012.04 22C17.56 22 22.04 17.52 22.04 12S17.56 2 12.04 2zm0 18.17c-1.53 0-3.03-.41-4.34-1.18l-.31-.18-3.06.8.82-2.98-.2-.31A8.1 8.1 0 013.87 12c0-4.51 3.67-8.17 8.17-8.17S20.21 7.49 20.21 12s-3.67 8.17-8.17 8.17zm4.48-6.12c-.25-.12-1.46-.72-1.69-.8-.23-.08-.4-.12-.57.12-.17.25-.65.8-.8.96-.15.17-.3.19-.56.06-.25-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.3.37-.45.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.68 4.25 3.76.59.25 1.05.4 1.41.51.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z" />
-            </svg>
-
-            Reservar cita
-          </a>
-          
-          
-        </article>
-
-        <!-- 3 — TEAL sólido -->
-        <article
-          class="reveal card-hover rounded-2xl p-7 border border-teal-200 hover:border-teal-400 hover:shadow-tealsoft"
-          style="background:linear-gradient(145deg,#ffffff,#EAF8F6);">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-            style="background:linear-gradient(135deg,#2BA89A,#1B8E82);" aria-hidden="true">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-          <span
-            class="inline-block text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3 text-white"
-            style="background:#1B8E82;">Investigación · Tesis · Publicación</span>
-          <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">Investigación en salud mental</h3>
-          <p class="text-ink-500 text-sm leading-relaxed">Asesoría en tesis, artículos científicos y proyectos
-            académicos.</p>
-
-             <!-- Botón WhatsApp -->
-          <a href="https://wa.me/51999999999?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20la%20terapia."
-            target="_blank"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-white font-medium transition hover:scale-105"
-            style="background:linear-gradient(135deg,#99d9d2,#38afa9);">
-
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12.04 2C6.52 2 2.04 6.48 2.04 12c0 1.76.46 3.48 1.34 5L2 22l5.15-1.35A9.94 9.94 0 0012.04 22C17.56 22 22.04 17.52 22.04 12S17.56 2 12.04 2zm0 18.17c-1.53 0-3.03-.41-4.34-1.18l-.31-.18-3.06.8.82-2.98-.2-.31A8.1 8.1 0 013.87 12c0-4.51 3.67-8.17 8.17-8.17S20.21 7.49 20.21 12s-3.67 8.17-8.17 8.17zm4.48-6.12c-.25-.12-1.46-.72-1.69-.8-.23-.08-.4-.12-.57.12-.17.25-.65.8-.8.96-.15.17-.3.19-.56.06-.25-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.3.37-.45.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.68 4.25 3.76.59.25 1.05.4 1.41.51.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z" />
-            </svg>
-
+          <a href="https://wa.me/" target="_blank"
+            class="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold text-sm rounded-xl shadow-tealsoft hover:shadow-tealsoftHover hover:-translate-y-0.5 transition-all duration-300">
             Reservar cita
           </a>
         </article>
 
-        <!-- 4 — ROSE sólido -->
-        <article
-          class="reveal card-hover rounded-2xl p-7 border border-rose-200 hover:border-rose-400 hover:shadow-soft"
-          style="background:linear-gradient(145deg,#ffffff,#FBF1F1);">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-            style="background:linear-gradient(135deg,#C56C84,#A8526A);" aria-hidden="true">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
-            </svg>
+        <!-- Card 2 -->
+        <article class="reveal card-hover bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-rose-100 shadow-premium hover:border-rose-300 hover:shadow-softHover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-sm" style="background:linear-gradient(135deg,#C56C84,#A8526A);">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-1a4 4 0 00-4-4M9 20H4v-1a4 4 0 014-4m6-7a3 3 0 11-6 0 3 3 0 016 0zm6 3a3 3 0 11-6 0 3 3 0 016 0zM6 9a3 3 0 116 0 3 3 0 01-6 0z" />
+              </svg>
+            </div>
+            <span class="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md mb-4 text-white" style="background:#C56C84;">Fortalece vínculos</span>
+            <h3 class="font-display font-semibold text-xl text-ink-700 mb-3">Terapia familiar</h3>
+            
+            <!-- Descripción con Tipografía Mejorada -->
+            <p class="text-ink-500 text-[15px] md:text-[16px] leading-[1.7] font-normal mb-6">
+              Mejora de forma asertiva la comunicación y fortalece las relaciones esenciales de tu familia.
+            </p>
           </div>
-          <span
-            class="inline-block text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3 text-white"
-            style="background:#C56C84;">Educación · Empresas · Familias</span>
-          <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">Conferencias y talleres</h3>
-          <p class="text-ink-500 text-sm leading-relaxed">Capacitaciones en bienestar emocional, prevención y promoción
-            de la salud mental.</p>
 
-            <!-- Botón WhatsApp -->
-          <a href="https://wa.me/51999999999?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20la%20terapia."
-            target="_blank"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-white font-medium transition hover:scale-105"
-            style="background:linear-gradient(135deg,#dfc6ce,#d1718c);">
-
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12.04 2C6.52 2 2.04 6.48 2.04 12c0 1.76.46 3.48 1.34 5L2 22l5.15-1.35A9.94 9.94 0 0012.04 22C17.56 22 22.04 17.52 22.04 12S17.56 2 12.04 2zm0 18.17c-1.53 0-3.03-.41-4.34-1.18l-.31-.18-3.06.8.82-2.98-.2-.31A8.1 8.1 0 013.87 12c0-4.51 3.67-8.17 8.17-8.17S20.21 7.49 20.21 12s-3.67 8.17-8.17 8.17zm4.48-6.12c-.25-.12-1.46-.72-1.69-.8-.23-.08-.4-.12-.57.12-.17.25-.65.8-.8.96-.15.17-.3.19-.56.06-.25-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.3.37-.45.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.68 4.25 3.76.59.25 1.05.4 1.41.51.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z" />
-            </svg>
-
+          <a href="https://wa.me/" target="_blank"
+            class="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-semibold text-sm rounded-xl shadow-soft hover:shadow-softHover hover:-translate-y-0.5 transition-all duration-300">
             Reservar cita
           </a>
         </article>
 
-        <!-- 5 — TEAL sólido -->
-        <article
-          class="reveal card-hover rounded-2xl p-7 border border-teal-200 hover:border-teal-400 hover:shadow-tealsoft"
-          style="background:linear-gradient(145deg,#ffffff,#EAF8F6);">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-            style="background:linear-gradient(135deg,#2BA89A,#1B8E82);" aria-hidden="true">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z" />
-            </svg>
+        <!-- Card 3 -->
+        <article class="reveal card-hover bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-teal-100 shadow-premium hover:border-teal-300 hover:shadow-tealsoftHover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-sm" style="background:linear-gradient(135deg,#2BA89A,#1B8E82);">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <span class="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md mb-4 text-white" style="background:#1B8E82;">Investigación · Tesis</span>
+            <h3 class="font-display font-semibold text-xl text-ink-700 mb-3">Investigación en salud mental</h3>
+            
+            <!-- Descripción con Tipografía Mejorada -->
+            <p class="text-ink-500 text-[15px] md:text-[16px] leading-[1.7] font-normal mb-6">
+              Asesoría metodológica avanzada en proyectos de tesis, artículos científicos y publicaciones académicas.
+            </p>
           </div>
-          <span
-            class="inline-block text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3 text-white"
-            style="background:#1B8E82;">Diagnóstico y guía</span>
-          <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">Evaluación y orientación psicológica</h3>
-          <p class="text-ink-500 text-sm leading-relaxed">Evaluaciones psicológicas para conocer y potenciar tu
-            bienestar.</p>
-            <!-- Botón WhatsApp -->
-          <a href="https://wa.me/51999999999?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20la%20terapia."
-            target="_blank"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-white font-medium transition hover:scale-105"
-            style="background:linear-gradient(135deg,#2BA89A,#1B8E82);">
 
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12.04 2C6.52 2 2.04 6.48 2.04 12c0 1.76.46 3.48 1.34 5L2 22l5.15-1.35A9.94 9.94 0 0012.04 22C17.56 22 22.04 17.52 22.04 12S17.56 2 12.04 2zm0 18.17c-1.53 0-3.03-.41-4.34-1.18l-.31-.18-3.06.8.82-2.98-.2-.31A8.1 8.1 0 013.87 12c0-4.51 3.67-8.17 8.17-8.17S20.21 7.49 20.21 12s-3.67 8.17-8.17 8.17zm4.48-6.12c-.25-.12-1.46-.72-1.69-.8-.23-.08-.4-.12-.57.12-.17.25-.65.8-.8.96-.15.17-.3.19-.56.06-.25-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.3.37-.45.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.68 4.25 3.76.59.25 1.05.4 1.41.51.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z" />
-            </svg>
-
+          <a href="https://wa.me/" target="_blank"
+            class="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold text-sm rounded-xl shadow-tealsoft hover:shadow-tealsoftHover hover:-translate-y-0.5 transition-all duration-300">
             Reservar cita
           </a>
         </article>
 
-        <!-- 6 — ROSE sólido -->
-        <article
-          class="reveal card-hover rounded-2xl p-7 border border-rose-200 hover:border-rose-400 hover:shadow-soft"
-          style="background:linear-gradient(145deg,#ffffff,#FBF1F1);">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-            style="background:linear-gradient(135deg,#C56C84,#A8526A);" aria-hidden="true">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12.75L11.25 15 15 9.75M21 12c0 4.556-3.04 8.27-7.207 9.53-.524.155-1.062.155-1.586 0C8.04 20.27 5 16.556 5 12V6.236a1 1 0 01.553-.894l6-3a1 1 0 01.894 0l6 3a1 1 0 01.553.894V12z" />
-            </svg>
+        <!-- Card 4 -->
+        <article class="reveal card-hover bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-rose-100 shadow-premium hover:border-rose-300 hover:shadow-softHover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-sm" style="background:linear-gradient(135deg,#C56C84,#A8526A);">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M12 3a4 4 0 014 4v4a4 4 0 01-8 0V7a4 4 0 014-4z" />
+              </svg>
+            </div>
+            <span class="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md mb-4 text-white" style="background:#C56C84;">Talleres</span>
+            <h3 class="font-display font-semibold text-xl text-ink-700 mb-3">Conferencias y talleres</h3>
+            
+            <!-- Descripción con Tipografía Mejorada -->
+            <p class="text-ink-500 text-[15px] md:text-[16px] leading-[1.7] font-normal mb-6">
+              Capacitaciones dinámicas sobre bienestar emocional y prevención de la salud mental en diversas instituciones.
+            </p>
           </div>
-          <span
-            class="inline-block text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full mb-3 text-white"
-            style="background:#C56C84;">Empresas e instituciones</span>
-          <h3 class="font-display font-semibold text-lg text-ink-700 mb-2">Gestión de riesgos psicosociales</h3>
-          <p class="text-ink-500 text-sm leading-relaxed">Promovemos entornos laborales saludables y productivos.</p>
-          <!-- Botón WhatsApp -->
-          <a href="https://wa.me/51999999999?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20la%20terapia."
-            target="_blank"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-white font-medium transition hover:scale-105"
-            style="background:linear-gradient(135deg,#dfc6ce,#d1718c);">
 
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12.04 2C6.52 2 2.04 6.48 2.04 12c0 1.76.46 3.48 1.34 5L2 22l5.15-1.35A9.94 9.94 0 0012.04 22C17.56 22 22.04 17.52 22.04 12S17.56 2 12.04 2zm0 18.17c-1.53 0-3.03-.41-4.34-1.18l-.31-.18-3.06.8.82-2.98-.2-.31A8.1 8.1 0 013.87 12c0-4.51 3.67-8.17 8.17-8.17S20.21 7.49 20.21 12s-3.67 8.17-8.17 8.17zm4.48-6.12c-.25-.12-1.46-.72-1.69-.8-.23-.08-.4-.12-.57.12-.17.25-.65.8-.8.96-.15.17-.3.19-.56.06-.25-.12-1.07-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.3.37-.45.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.57-1.37-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.68 4.25 3.76.59.25 1.05.4 1.41.51.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z" />
-            </svg>
+          <a href="https://wa.me/" target="_blank"
+            class="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-semibold text-sm rounded-xl shadow-soft hover:shadow-softHover hover:-translate-y-0.5 transition-all duration-300">
+            Reservar cita
+          </a>
+        </article>
 
+        <!-- Card 5 -->
+        <article class="reveal card-hover bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-teal-100 shadow-premium hover:border-teal-300 hover:shadow-tealsoftHover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-sm" style="background:linear-gradient(135deg,#2BA89A,#1B8E82);">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z" />
+              </svg>
+            </div>
+            <span class="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md mb-4 text-white" style="background:#1B8E82;">Diagnóstico</span>
+            <h3 class="font-display font-semibold text-xl text-ink-700 mb-3">Orientación psicológica</h3>
+            
+            <!-- Descripción con Tipografía Mejorada -->
+            <p class="text-ink-500 text-[15px] md:text-[16px] leading-[1.7] font-normal mb-6">
+              Evaluaciones especializadas orientadas a descubrir y potenciar al máximo tus fortalezas internas.
+            </p>
+          </div>
+
+          <a href="https://wa.me/" target="_blank"
+            class="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold text-sm rounded-xl shadow-tealsoft hover:shadow-tealsoftHover hover:-translate-y-0.5 transition-all duration-300">
+            Reservar cita
+          </a>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="reveal card-hover bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-rose-100 shadow-premium hover:border-rose-300 hover:shadow-softHover flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-sm" style="background:linear-gradient(135deg,#C56C84,#A8526A);">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75M21 12c0 4.556-3.04 8.27-7.207 9.53-.524.155-1.062.155-1.586 0C8.04 20.27 5 16.556 5 12V6.236a1 1 0 01.553-.894l6-3a1 1 0 01.894 0l6 3a1 1 0 01.553.894V12z" />
+              </svg>
+            </div>
+            <span class="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md mb-4 text-white" style="background:#C56C84;">Empresas</span>
+            <h3 class="font-display font-semibold text-xl text-ink-700 mb-3">Riesgos psicosociales</h3>
+            
+            <!-- Descripción con Tipografía Mejorada -->
+            <p class="text-ink-500 text-[15px] md:text-[16px] leading-[1.7] font-normal mb-6">
+              Consultorías diseñadas para promover entornos laborales altamente saludables, equilibrados y productivos.
+            </p>
+          </div>
+
+          <a href="https://wa.me/" target="_blank"
+            class="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-semibold text-sm rounded-xl shadow-soft hover:shadow-softHover hover:-translate-y-0.5 transition-all duration-300">
             Reservar cita
           </a>
         </article>
@@ -712,48 +618,48 @@
   </section>
 
 
-
   <!-- ════════════════════════════════════════
      PUBLICACIONES
 ════════════════════════════════════════ -->
-  <section id="publicaciones" class="py-20 bg-ink-700 relative overflow-hidden">
+  <section id="publicaciones" class="py-24 bg-ink-700 relative overflow-hidden">
     <div class="pointer-events-none absolute -top-16 -right-16 w-72 h-72 bg-teal-500/15 rounded-full blur-3xl"></div>
 
     <div class="max-w-5xl mx-auto px-5 relative z-10 reveal">
-      <div class="grid md:grid-cols-[1.2fr_1fr] gap-10 items-center">
+      <div class="grid md:grid-cols-[1.1fr_1fr] gap-12 items-center">
 
         <div>
           <p class="eyebrow text-teal-300 mb-3">Trabajo académico</p>
-          <h2 class="font-display font-semibold text-3xl md:text-4xl text-white mb-4">Publicaciones científicas</h2>
-          <p class="text-white/65 text-base leading-relaxed mb-6 max-w-md">
-            Consulta mis contribuciones científicas en salud mental y bienestar psicológico.
+          <h2 class="font-display font-semibold text-3xl md:text-4xl text-white mb-5">Publicaciones científicas</h2>
+          
+          <!-- Descripción con Tipografía Mejorada -->
+          <p class="text-white/75 text-[15px] md:text-[16px] leading-[1.75] font-normal mb-8 max-w-md">
+            Consulta mis aportes académicos y contribuciones científicas indexadas sobre la salud mental y bienestar psicológico.
           </p>
+          
           <a href="#" target="_blank" rel="noopener"
-            class="inline-flex items-center gap-2 bg-teal-400 text-ink-700 font-bold px-6 py-3 rounded-full hover:bg-white transition-colors duration-300 text-sm">
+            class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-400 to-teal-500 text-ink-700 font-bold px-7 py-3.5 rounded-full hover:from-white hover:to-white hover:shadow-white/10 hover:-translate-y-0.5 transition-all duration-300 text-sm">
             Ver publicaciones →
           </a>
         </div>
 
         <ul class="grid gap-3 list-none p-0 m-0">
-          <li class="flex items-center gap-3 bg-white/8 border border-white/10 rounded-xl px-5 py-3.5">
+          <li class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-4 hover:bg-white/10 transition-colors">
             <svg class="w-5 h-5 text-teal-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            <span class="text-white/80 text-sm font-medium">Artículos indexados</span>
+            <span class="text-white/90 text-sm font-medium">Artículos indexados</span>
           </li>
-          <li class="flex items-center gap-3 bg-white/8 border border-white/10 rounded-xl px-5 py-3.5">
+          <li class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-4 hover:bg-white/10 transition-colors">
             <svg class="w-5 h-5 text-rose-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V9m4 8V5m4 12v-6M5 17v-3" />
             </svg>
-            <span class="text-white/80 text-sm font-medium">Estudios de investigación</span>
+            <span class="text-white/90 text-sm font-medium">Estudios de investigación</span>
           </li>
-          <li class="flex items-center gap-3 bg-white/8 border border-white/10 rounded-xl px-5 py-3.5">
+          <li class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-4 hover:bg-white/10 transition-colors">
             <svg class="w-5 h-5 text-teal-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
-            <span class="text-white/80 text-sm font-medium">Capítulos y ponencias académicas</span>
+            <span class="text-white/90 text-sm font-medium">Capítulos y ponencias académicas</span>
           </li>
         </ul>
 
@@ -765,27 +671,28 @@
   <!-- ════════════════════════════════════════
      RECURSOS
 ════════════════════════════════════════ -->
-  <section id="recursos" class="py-20 bg-rose-50">
+  <section id="recursos" class="py-20 bg-rose-50/60">
     <div class="max-w-5xl mx-auto px-5">
-      <div
-        class="reveal bg-white border border-rose-200 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft">
+      <div class="reveal bg-white border border-rose-200/80 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft hover:shadow-softHover transition-all duration-300">
 
         <div class="flex items-center gap-5">
-          <div class="w-14 h-14 rounded-2xl bg-rose-100 flex items-center justify-center flex-shrink-0"
-            aria-hidden="true">
+          <div class="w-14 h-14 rounded-xl bg-rose-100 flex items-center justify-center flex-shrink-0 shadow-inner" aria-hidden="true">
             <svg class="w-7 h-7 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
             </svg>
           </div>
           <div>
-            <h3 class="font-display font-semibold text-xl text-ink-700 mb-1">Recursos gratuitos</h3>
-            <p class="text-ink-500 text-sm">Puedes descargar libros, artículos y documentos en PDF.</p>
+            <h3 class="font-display font-semibold text-xl text-ink-700 mb-1.5">Recursos gratuitos</h3>
+            
+            <!-- Descripción con Tipografía Mejorada -->
+            <p class="text-ink-500 text-[14px] md:text-[15px] font-normal leading-relaxed">
+              Descarga herramientas terapéuticas gratuitas, lecturas selectas y guías prácticas en formato PDF.
+            </p>
           </div>
         </div>
 
         <a href="#" target="_blank" rel="noopener"
-          class="flex-shrink-0 inline-flex items-center gap-2 bg-ink-700 text-white font-bold px-6 py-3 rounded-full hover:bg-rose-500 transition-colors duration-300 text-sm">
+          class="flex-shrink-0 inline-flex items-center gap-2 bg-ink-700 text-white font-bold px-7 py-3.5 rounded-full shadow-premium hover:bg-rose-600 hover:shadow-softHover hover:-translate-y-0.5 transition-all duration-300 text-sm">
           Ver recursos →
         </a>
 
@@ -794,19 +701,17 @@
   </section>
 
 
-
-
   <!-- ════════════════════════════════════════
      REFLEXIÓN
 ════════════════════════════════════════ -->
-  <section class="py-24">
+  <section class="py-24 bg-white">
     <div class="max-w-3xl mx-auto px-5 text-center reveal">
       <span class="quote-mark" aria-hidden="true">"</span>
-      <p class="eyebrow text-teal-500 mb-6">Reflexión</p>
+      <p class="eyebrow text-teal-600 font-bold mb-6">Reflexión</p>
       <blockquote class="font-display font-medium text-2xl md:text-3xl text-ink-700 leading-relaxed m-0">
         Si ayudo a una sola persona a tener esperanza, no habré vivido en vano.
       </blockquote>
-      <p class="text-ink-400 mt-5 text-sm font-semibold uppercase tracking-widest">— Martin Luther King</p>
+      <p class="text-ink-400 mt-5 text-xs font-bold uppercase tracking-widest">— Martin Luther King</p>
     </div>
   </section>
 
@@ -814,9 +719,9 @@
   <!-- ════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════ -->
-  <footer class="bg-ink-700 py-12">
+  <footer class="bg-ink-700 py-12 border-t border-white/5">
     <div class="max-w-6xl mx-auto px-5">
-      <p class="text-white/40 text-xs text-center">© 2026 Thalizza García · Todos los derechos reservados</p>
+      <p class="text-white/40 text-xs text-center font-medium tracking-wide">© 2026 Thalizza García · Todos los derechos reservados</p>
     </div>
   </footer>
 
@@ -828,7 +733,7 @@
     /* Scroll-reveal */
     const observer = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
@@ -844,5 +749,4 @@
   </script>
 
 </body>
-
 </html>
