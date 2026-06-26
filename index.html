@@ -348,20 +348,57 @@
   <div class="max-w-5xl mx-auto px-5">
     <div class="grid md:grid-cols-[0.85fr_1.15fr] gap-12 items-center reveal">
 
-      <!-- Ilustración botánica -->
-      <div class="flex justify-center">
-        <svg viewBox="0 0 160 220" class="w-36 md:w-44 text-rose-400" aria-hidden="true">
-          <path class="twig" d="M80 10 C 80 70, 80 150, 80 210"/>
-          <path class="twig" d="M80 50 C 60 40, 45 25, 38 15"/>
-          <path class="twig" d="M80 80 C 102 70, 118 55, 126 44"/>
-          <path class="twig" d="M80 115 C 58 107, 42 92, 34 80"/>
-          <path class="twig" d="M80 150 C 104 142, 120 126, 128 114"/>
-          <circle cx="38"  cy="15"  r="4" fill="currentColor"/>
-          <circle cx="126" cy="44"  r="4" fill="currentColor"/>
-          <circle cx="34"  cy="80"  r="4" fill="currentColor"/>
-          <circle cx="128" cy="114" r="4" fill="currentColor"/>
-        </svg>
-      </div>
+      <div class="flex flex-col items-center gap-6">
+
+  <!-- Cerebro -->
+  <svg viewBox="0 0 180 180"
+       class="w-40 text-rose-400"
+       aria-hidden="true">
+
+    <!-- Contorno -->
+    <path class="brain"
+      d="M90 30
+         C60 10,20 30,25 70
+         C10 80,10 110,30 120
+         C25 150,50 165,75 155
+         C85 170,95 170,90 145
+         C95 170,105 170,115 155
+         C140 165,165 150,160 120
+         C180 110,180 80,165 70
+         C170 30,130 10,90 30 Z"/>
+
+    <!-- División central -->
+    <path class="brain"
+      d="M90 35 C88 70,88 110,90 145"/>
+
+    <!-- Surcos -->
+    <path class="brain" d="M55 55 C40 70,45 90,65 95"/>
+    <path class="brain" d="M60 105 C45 120,55 135,75 140"/>
+
+    <path class="brain" d="M125 55 C140 70,135 90,115 95"/>
+    <path class="brain" d="M120 105 C135 120,125 135,105 140"/>
+  </svg>
+
+  <div class="text-center text-rose-400">
+    <p class="text-2xl font-light">Psicóloga</p>
+    <p class="text-lg uppercase tracking-[0.3em]">
+        Investigación
+    </p>
+    <p class="text-sm italic opacity-80">
+        Científica
+    </p>
+</div>
+</div>
+
+<style>
+.brain{
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+</style>
 
       <div>
         <p class="eyebrow text-rose-500 mb-3">Mi historia</p>
